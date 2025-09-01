@@ -14,12 +14,15 @@ import Reviews from '@/components/Reviews'
 import Founders from '@/components/Founders'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import ServiceBanner from '@/components/ServiceBanner'
+import CreativeInfo from '@/components/CreativeInfo'
 function App() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Hero Section */}
       <Hero/>
-      <ClientCards/>  
+      <ServiceBanner/>
+      <CreativeInfo/>
       <MarqueeSection />
  
 
