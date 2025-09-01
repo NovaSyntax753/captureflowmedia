@@ -46,57 +46,6 @@ const Hero = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className="relative flex flex-col bg-linear-60 items-center justify-center font-semibold text-center pt-5"
-      style={{
-        background: 'radial-gradient(circle at center, #00181c 0%,#000 100%)'
-      }} id="hero">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between px-4 md:px-12 items-center relative  pb-4 mb-4">
-        <div className="flex items-center w-full lg:w-auto justify-between lg:justify-start gap-4">
-          <img src={LeadsflowMediaLogo.src} alt="Leadsflow Media Logo" className="h-16 md:h-20" />
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden text-white focus:outline-none z-50"
-            aria-label="Toggle menu"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              {isMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className={`fixed inset-0 bg-black bg-opacity-95 z-40 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}>
-          <ul className="flex flex-col items-center justify-center h-full space-y-8">
-            {navLinks.map(link => link.isButton ? (
-              <li key={link.label}>
-                <a href={link.href} className="px-6 py-3 bg-[#53c926] text-black rounded-4xl hover:bg-green-700 transition duration-300 text-xl block" onClick={() => setIsMenuOpen(false)}>{link.label}</a>
-              </li>
-            ) : (
-              <li key={link.label}>
-                <a href={link.href} className="text-gray-300 hover:text-white text-2xl block py-2 px-4" onClick={() => setIsMenuOpen(false)}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden lg:flex flex-row items-center space-x-8 text-xl font-semibold">
-          {navLinks.map(link => link.isButton ? (
-            <li key={link.label}>
-              <a href={link.href} className="px-6 py-2 bg-[#53c926] text-black  rounded-4xl hover:bg-green-700 transition duration-300">{link.label}</a>
-            </li>
-          ) : (
-            <li key={link.label}>
-              <a href={link.href} className="text-gray-300 hover:text-white block py-2 px-4">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
       <div className="flex-1 w-full items-center justify-center bg-cover bg-center "
         style={{
           background: 'radial-gradient(circle at center, #00181c 0%,#000 100%)'
@@ -169,7 +118,6 @@ const Hero = () => {
         </div>
 
       </div>
-    </div>
   )
 }
 
