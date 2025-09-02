@@ -16,38 +16,23 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import ServiceBanner from '@/components/ServiceBanner'
 import CreativeInfo from '@/components/CreativeInfo'
+import CreativitySection from '@/components/CreativitiySection'
+import WhatWeDo from '@/components/WhatWeDo'
+import Spotlight from '@/components/Spotlight'
+import ContactForm from '@/components/ContactForm'
+import ClientsMarquee from '@/components/ClientsMarquee'
 function App() {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
       {/* Hero Section */}
       <Hero/>
       <ServiceBanner/>
-      <CreativeInfo/>
-      <MarqueeSection />
- 
-
-      {/* About BrandFlow Section */}
-      <About />
-      
-      {/* Making Your Life Easier Section */} 
-       <Infosection/>
-      {/* Our Services Section */}
-        <Services/>
-
-      {/* Our Expertise Section */}
-      <Expertise/>
-
-      {/* Our Work Section */}
-      <Work/>
-      {/* Words From Our Clients Section */}
-      <Reviews/>
-
-      {/* About Team Section */}
-      <Founders/>
-
-      {/* Contact Section */}
-
-      <Contact />
+      {/* <CreativeInfo/> */}
+      <CreativitySection/>
+      <WhatWeDo/>
+      <Spotlight />
+      <ClientsMarquee />
+      <ContactForm />
       {/* Footer */}
       <Footer />
     </div>
