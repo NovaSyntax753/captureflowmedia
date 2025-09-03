@@ -7,12 +7,14 @@ import CountUp from 'react-countup'
 import { FaUsers, FaEye } from 'react-icons/fa'
 import { useInView } from 'react-intersection-observer';
 import AnimatedTitle from './Animated'
+import { label } from 'framer-motion/client'
 
 const navLinks = [
     {label:'Home', href:'/'},
-  { label: 'Services', href: '/services' },
-  { label: 'Work', href: '/work' },
-  { label: 'Contact', href: '/contact'},
+    {label: 'About', href: '/about'},
+    { label: 'Services', href: '/services' },
+    { label: 'Work', href: '/work' },
+    { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar = () => {
