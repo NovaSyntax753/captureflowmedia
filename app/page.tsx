@@ -32,9 +32,8 @@ function App() {
       <WhatWeDo/>
       <Spotlight />
       <ClientsMarquee />
-      <ContactForm />
-      {/* Footer */}
-      <Footer />
+      <ContactForm text1="Talk" text2="to us" />
+
     </div>
   )
 }

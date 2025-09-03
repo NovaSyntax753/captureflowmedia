@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className="container mx-auto flex flex-col md:flex-row justify-between px-4 md:px-12 items-center relative">
         <div className="min-w-1/2 flex items-center lg:w-auto justify-between lg:justify-start gap-4">
           {/* <img src={LeadsflowMediaLogo.src} alt="Leadsflow Media Logo" className="h-16 md:h-20" /> */}
-          <h1 className="text-2xl font-bold">LeadsFlow Media</h1>
+          <h1 className="text-2xl font-bold">KkaptureFlow Media</h1>
           <button
             onClick={toggleMenu}
             className="lg:hidden text-black focus:outline-none z-50"

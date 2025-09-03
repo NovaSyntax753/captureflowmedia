@@ -2,14 +2,14 @@
 
 import React from "react";
 
-const ContactForm = () => {
+const ContactForm = ({text1,text2}: {text1: string, text2: string}) => {
   return (
-    <section className="w-full min-h-screen text-black flex items-center justify-center bg-[#f5fff5] px-6 py-16">
+    <section className="w-full min-h-screen text-black flex items-center justify-center bg-white px-6 py-16">
       <div className="w-full max-w-3xl">
         {/* Header */}
         <h2 className="text-center text-6xl md:text-4xl font-light mb-10">
-          <span className="font-extrabold text-5xl">Talk</span>{" "}
-          <span className="italic text-5xl">to us</span>
+          <span className="font-extrabold text-5xl">{text1}</span>{" "}
+          <span className="italic text-5xl">{text2}</span>
         </h2>
 
         {/* Form */}
