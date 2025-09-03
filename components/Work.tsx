@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import ribbon from '../assets/ribbon_Vector-p-2600.png'
 import AnimatedTitle from './Animated';
+import Image from "next/image"
 import WorkCard from './WorkCard';
 const reels = [{
   src: 'https://www.youtube.com/embed/JUEdUm_pTuo',
@@ -57,7 +58,7 @@ const Work = () => {
 
   return (
     <section className="relative w-full py-16 " id="work">
-      <img src={ribbon.src} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
+      <Image src={ribbon.src} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4">
         <AnimatedTitle>
           <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-[#53c926]">Our Work Speaks for Itself</h2>

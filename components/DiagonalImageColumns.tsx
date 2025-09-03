@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 
 // Replace these sample URLs with your own
@@ -85,7 +86,7 @@ export default function DiagonalImageColumns() {
       );
     }, 1600);
     return () => clearInterval(interval);
-    // eslint-disable-next-line
+
   }, []);
 
   // Infinite scroll logic (per column)
@@ -142,7 +143,7 @@ export default function DiagonalImageColumns() {
                   transform: flipStates[i][j] ? "rotateY(180deg)" : undefined,
                 }}
               >
-                <img
+                <Image
                   src={src}
                   alt=""
                   className="w-full h-full object-cover rounded-[10px] transition-transform duration-700"

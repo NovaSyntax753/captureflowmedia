@@ -18,7 +18,7 @@ const VideoCardLeft: React.FC<VideoPlayerProps> = ({ src, className }) => {
         loop
         muted
         playsInline
-        className=" object-cover"
+        className={`object-cover ${className}`}
       />
     </div>
   );

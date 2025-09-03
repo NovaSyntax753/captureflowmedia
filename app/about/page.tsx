@@ -44,6 +44,7 @@ export default function ServicesNavigator() {
       </div>
       </div>
       <CgiContentSection />
+      <Founders />
 
     </section>
   );
@@ -51,6 +52,7 @@ export default function ServicesNavigator() {
 
 
 import Image from "next/image";
+import Founders from "@/components/Founders";
 
 const accordionItems = [
   {

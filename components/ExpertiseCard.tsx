@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import styled from 'styled-components';
 
 const ExpertiseCard = ({ img, title, desc }:{ img: string; title: string; desc: string; }) => {
@@ -8,7 +9,7 @@ const ExpertiseCard = ({ img, title, desc }:{ img: string; title: string; desc: 
         <div className="card__shine" />
         <div className="card__glow" />
         <div className="card__image-wrapper">
-          <img src={img} alt={title} className="card__image" loading="lazy" />
+          <Image src={img} alt={title} className="card__image" loading="lazy" />
         </div>
         <div className="card__content">
           <h3 className="card__title">{title}</h3>

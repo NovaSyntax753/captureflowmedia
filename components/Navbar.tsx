@@ -1,14 +1,5 @@
 "use client"
 import React, { useState } from 'react'
-import LeadsflowMediaLogo from '../assets/leadsflowmedialogo.png'
-import Sublogo from '../assets/Asset 6.png'
-import arrow from '../assets/arrow.png'
-import CountUp from 'react-countup'
-import { FaUsers, FaEye } from 'react-icons/fa'
-import { useInView } from 'react-intersection-observer';
-import AnimatedTitle from './Animated'
-import { label } from 'framer-motion/client'
-
 const navLinks = [
     {label:'Home', href:'/'},
     {label: 'About', href: '/about'},
@@ -19,9 +10,6 @@ const navLinks = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [clientsKey, setClientsKey] = useState(0);
-  const [viewsKey, setViewsKey] = useState(0);
-  const { ref: statsRef, inView: statsInView } = useInView({ triggerOnce: false, threshold: 0.3 });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
