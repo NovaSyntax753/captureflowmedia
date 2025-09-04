@@ -22,6 +22,24 @@ const icons = [
   <FaThreads key="threads" className="text-white bg-black rounded-full" />,
   <FaInstagram key="instagram" className="text-pink-500" />,
   <FaXTwitter key="twitter" className="text-white" />,
+    <FaLinkedin key="linkedin" className="text-[#0A66C2]" />,
+  <FaFacebook key="facebook" className="text-[#1877F2]" />,
+  <FaWhatsapp key="whatsapp" className="text-[#25D366]" />,
+  <FaPinterest key="pinterest" className="text-[#E60023]" />,
+  <FaYoutube key="youtube" className="text-[#FF0000]" />,
+  <FaSnapchat key="snapchat" className="text-[#FFFC00]" />,
+  <FaThreads key="threads" className="text-white bg-black rounded-full" />,
+  <FaInstagram key="instagram" className="text-pink-500" />,
+  <FaXTwitter key="twitter" className="text-white" />,
+    <FaLinkedin key="linkedin" className="text-[#0A66C2]" />,
+  <FaFacebook key="facebook" className="text-[#1877F2]" />,
+  <FaWhatsapp key="whatsapp" className="text-[#25D366]" />,
+  <FaPinterest key="pinterest" className="text-[#E60023]" />,
+  <FaYoutube key="youtube" className="text-[#FF0000]" />,
+  <FaSnapchat key="snapchat" className="text-[#FFFC00]" />,
+  <FaThreads key="threads" className="text-white bg-black rounded-full" />,
+  <FaInstagram key="instagram" className="text-pink-500" />,
+  <FaXTwitter key="twitter" className="text-white" />,
 ];
 
 export default function SocialMarquee() {
@@ -33,16 +51,18 @@ export default function SocialMarquee() {
       </div>
 
       {/* Marquee */}
-      <div className="overflow-hidden relative flex-1">
-        <div className="flex gap-6 animate-marquee text-3xl">
-          {Array(3)
-            .fill(icons)
-            .flat()
-            .map((icon, i) => (
-              <div key={i} className="shrink-0">
-                {icon}
-              </div>
-            ))}
+      <div className="relative flex-1 overflow-hidden">
+        <div className="flex w-max animate-marquee gap-6 text-3xl">
+          {icons.map((icon, i) => (
+            <div key={`set1-${i}`} className="shrink-0">
+              {icon}
+            </div>
+          ))}
+          {icons.map((icon, i) => (
+            <div key={`set2-${i}`} className="shrink-0">
+              {icon}
+            </div>
+          ))}
         </div>
       </div>
 
@@ -57,8 +77,6 @@ export default function SocialMarquee() {
           }
         }
         .animate-marquee {
-          width: max-content;
-          display: flex;
           animation: marquee 20s linear infinite;
         }
       `}</style>
