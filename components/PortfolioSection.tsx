@@ -1,21 +1,24 @@
 import { useState } from "react";
-// import video1 from "../assets/video1.mp4";
+
 const videos = [
   { id: 1, src: "/video1.mp4" },
-  // { id: 2, src: "/videos/video2.mp4" },
-  // { id: 3, src: "/videos/video3.mp4" },
-  // { id: 4, src: "/videos/video4.mp4" },
-  // { id: 5, src: "/videos/video5.mp4" },
-  // { id: 6, src: "/videos/video6.mp4" },
-  // { id: 7, src: "/videos/video7.mp4" },
-  // { id: 8, src: "/videos/video8.mp4" },
-  // { id: 9, src: "/videos/video9.mp4" },
-  // { id: 10, src: "/videos/video10.mp4" },
+  { id: 2, src: "/video2.mp4" },
+  { id: 3, src: "/video3.mp4" },
+  { id: 4, src: "/video4.mp4" },
+  { id: 5, src: "/video5.mp4" },
+  { id: 6, src: "/video6.mp4" },
+  { id: 7, src: "/video7.mp4" },
+  { id: 8, src: "/video8.mp4" },
+  { id: 9, src: "/video9.mp4" },
+  { id: 10, src: "/video10.mp4" },
+  { id: 11, src: "/video11.mp4" },
+  { id: 12, src: "/video12.mp4" },
+  { id: 13, src: "/video13.mp4" },
 ];
 
 export default function PortfolioSection() {
-  const [visibleCount, setVisibleCount] = useState(6);
-
+  const [visibleCount, setVisibleCount] = useState(8);
+  
   const showMore = () => {
     setVisibleCount((prev) => prev + 6);
   };
@@ -38,6 +41,7 @@ export default function PortfolioSection() {
             className="rounded-xl shadow-lg bg-black overflow-hidden"
           >
             <video
+              onLoad={(e) => e.currentTarget.pause()}
               src={video.src}
               muted
               className="rounded-xl aspect-auto object-contain cursor-pointer"

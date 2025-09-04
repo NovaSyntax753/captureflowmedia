@@ -14,7 +14,7 @@ const tabs = [
 ];
 
 export default function ServicesNavigator() {
-  const [active, setActive] = useState("cgi");
+  const [active, setActive] = useState("video-lead-machine");
 
   const handleClick = (id: string) => {
     setActive(id);
@@ -31,7 +31,7 @@ export default function ServicesNavigator() {
       <p className="text-5xl italic mb-8">Services</p>
 
       {/* Tabs */}
-      <div className="flex flex-wrap  justify-center gap-4 bg-gray-100 p-3 rounded-full w-fit mx-auto">
+      <div className="flex flex-wrap sm:justify-evenly  min-w-4xl justify-center gap-4 bg-gray-100 p-3 rounded-full mx-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}

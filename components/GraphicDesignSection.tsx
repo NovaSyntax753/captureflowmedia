@@ -45,7 +45,7 @@ const graphicfeatures = [
 export default function GraphicDesignSection() {
   return (
     <>
-    <section id="graphic-design" className="w-full py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12">
+    <section id="graphics" className="w-full py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12">
       {/* Left Content */}
       <div className="flex-1">
         <h2 className="text-3xl md:text-4xl text-left font-bold">

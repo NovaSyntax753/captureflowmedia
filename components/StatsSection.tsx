@@ -7,7 +7,7 @@ export default function StatsSection() {
   ];
 
   return (
-    <section className="w-full text-black py-12">
+    <section className="w-full py-12">
       <div className="  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 text-center border-y border-gray-700 py-8">
         {stats.map((stat, index) => (
           <div key={index}>
