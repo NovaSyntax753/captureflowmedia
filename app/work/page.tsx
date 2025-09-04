@@ -7,7 +7,7 @@ import StatsSection from "@/components/StatsSection"
 
 const page = () => {
   return (
-    <div className="items-center py-10 bg-black text-white justify-center flex flex-col ">
+    <div className="items-center  bg-black text-white justify-center flex flex-col ">
         <StatsSection />
         <PortfolioSection />
         {/* <VideoCarousel /> */}
