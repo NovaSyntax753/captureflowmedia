@@ -1,67 +1,83 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-
+import artboard from "../assets/artboard2.png";
+import artboard2 from "../assets/artboard.png";
+import b2 from "../assets/1.png";
+import b3 from "../assets/2.png";
+import b4 from "../assets/3.png";
+import b5 from "../assets/4v2.png";
+import b6 from "../assets/101024 (Your Story).png";
+import b7 from "../assets/live poster.png";
+import b8 from "../assets/thumbnail 1st.png";
+import b9 from "../assets/thumbnail(dividend investpack).png";
+import b10 from "../assets/posts (14).png";
 // Replace these sample URLs with your own
 const initialColumns = [
   [
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11066F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/IMG_2458.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11155F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-21.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11343F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
+    artboard.src,
+    artboard2.src,
+    b2.src,
+    b3.src,
+    b4.src,
+    b5.src,
+    b6.src,
+    b7.src,
+    b8.src,
+    b9.src,
+    b10.src,
   ],
   [
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11066F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/IMG_2458.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11155F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-21.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11343F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
+    b10.src,
+    artboard.src,
+    artboard2.src,
+    b2.src,
+    b3.src,
+    b4.src,
+    b5.src,
+    b6.src,
+    b7.src,
+    b8.src,
+    b9.src
   ],
   [
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11066F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/IMG_2458.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11155F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-21.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11343F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
+    b9.src,
+    b10.src,
+    artboard.src,
+    artboard2.src,
+    b2.src,
+    b3.src,
+    b4.src,
+    b5.src,
+    b6.src,
+    b7.src,
+    b8.src
   ],
   [
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11066F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/IMG_2458.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11155F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-21.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11343F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
+    b8.src,
+    b9.src,
+    b10.src,
+    artboard.src,
+    artboard2.src,
+    b2.src,
+    b3.src,
+    b4.src,
+    b5.src,
+    b6.src,
+    b7.src,
+    b8.src
   ],
   [
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11066F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/IMG_2458.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11155F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1092499.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/iwbdi.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-21.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/BB_Day11343F.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/1-20.webp",
-    "https://neonpigeon.in/wp-content/uploads/2024/11/0.webp",
+    b7.src,
+    b8.src,
+    b9.src,
+    b10.src,
+    artboard.src,
+    artboard2.src,
+    b2.src, 
+    b3.src,
+    b4.src,
+    b5.src,
   ],
 ];
 
@@ -115,7 +131,7 @@ export default function DiagonalImageColumns() {
   }, [columns]);
 
   return (
-    <div className="flex w-full h-[600px] overflow-hidden bg-black">
+    <div className="hidden sm:flex w-full h-[600px] overflow-hidden bg-black">
       {columns.map((col, i) => (
         <div
           key={i}
@@ -146,6 +162,8 @@ export default function DiagonalImageColumns() {
                 <Image
                   src={src}
                   alt=""
+                  width={300}
+                  height={500}
                   className="w-full h-full object-cover rounded-[10px] transition-transform duration-700"
                   style={{
                     transform: flipStates[i][j] ? "rotateY(180deg)" : undefined,
