@@ -25,13 +25,13 @@ export default function ServicesNavigator() {
   };
 
   return (
-    <section className="w-full h-full flex flex-col justify-center min-h-screen text-center py-12">
-      <div className="min-h-[60vh] bg-white text-black justify-center flex flex-col gap-6">
-      <h2 className="text-3xl font-bold">Content Marketing</h2>
-      <p className="text-xl italic mb-8">Services</p>
+    <section className="w-full h-full flex flex-col justify-center items-center min-h-screen text-center py-12">
+      <div className="min-h-[60vh]  bg-white text-black justify-center flex flex-col gap-6">
+      <h2 className="text-5xl font-extrabold">Content Marketing</h2>
+      <p className="text-5xl italic mb-8">Services</p>
 
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-4 bg-gray-100 p-3 rounded-full w-fit mx-auto">
+      <div className="flex flex-wrap  justify-center gap-4 bg-gray-100 p-3 rounded-full w-fit mx-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -47,6 +47,7 @@ export default function ServicesNavigator() {
         ))}
       </div>
       </div>
+      <hr className="hidden sm:block p-0 sm:p-[0.01rem] bg-black w-[90%] mb-8"/>
       <VideoLeadMachineSection />
       <VideoEditingSection />
       <SocialMarquee />
