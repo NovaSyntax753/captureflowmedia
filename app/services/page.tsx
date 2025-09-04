@@ -1,12 +1,16 @@
 "use client";
 import { useState } from "react";
+import SocialMarquee from "@/components/SocialMarquee";
+import  GraphicDesignSection  from "@/components/GraphicDesignSection";
+import MotionGraphicsSection from "@/components/MotionGraphics";
+import VideoEditingSection from "@/components/VideoEditing";
+import VideoLeadMachineSection from "@/components/VideoLeadMachineSection";
 
 const tabs = [
-  { id: "cgi", label: "3D, CGI & VFX" },
-  { id: "video", label: "Video Production" },
-  { id: "digital", label: "Digital Art" },
-  { id: "photoshoot", label: "Commercial Photoshoot" },
-  { id: "ugc", label: "Community & UGC" },
+  { id: "video-lead-machine", label: "Video Lead Machine" },
+  { id: "video-editing", label: "Video Editing" },
+  { id: "graphics", label: "Graphic Design" },
+  { id: "motion-graphics", label: "Motion Graphics" },
 ];
 
 export default function ServicesNavigator() {
@@ -21,7 +25,7 @@ export default function ServicesNavigator() {
   };
 
   return (
-    <section className="w-full h-full min-h-screen text-center py-12">
+    <section className="w-full h-full flex flex-col justify-center min-h-screen text-center py-12">
       <div className="min-h-[60vh] bg-white text-black justify-center flex flex-col gap-6">
       <h2 className="text-3xl font-bold">Content Marketing</h2>
       <p className="text-xl italic mb-8">Services</p>
@@ -43,82 +47,14 @@ export default function ServicesNavigator() {
         ))}
       </div>
       </div>
-      <CgiContentSection />
+      <VideoLeadMachineSection />
+      <VideoEditingSection />
+      <SocialMarquee />
+      <GraphicDesignSection />
+      <MotionGraphicsSection />
 
     </section>
   );
 }
 
 
-import Image from "next/image";
-
-const accordionItems = [
-  {
-    title: "Unreal Visual",
-    content: "We create jaw-dropping CGI visuals that push the limits of imagination and innovation."
-  },
-  {
-    title: "Imagination Without Limit",
-    content: "Transforming ideas into stunning 3D content that goes beyond conventional creativity."
-  },
-  {
-    title: "Mind Blowing Conceptualizing",
-    content: "We conceptualize unique designs and animations to bring your brand to life in unforgettable ways."
-  }
-];
-
- function CgiContentSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  return (
-    <section className="w-full py-16 px-6 bg-black lg:px-20 flex flex-col lg:flex-row items-center gap-12">
-      {/* Left Side */}
-      <div className="flex-1">
-        <h2 className="text-3xl font-bold">
-          3D & CGI Content{" "}
-          <span className="block italic font-medium text-gray-700">
-            to make you stand out from the rest!
-          </span>
-        </h2>
-        <p className="mt-6 text-gray-700 leading-relaxed">
-          This is the portal where imagination meets reality. Our 3D and CGI work here
-          at Neon Pigeon turns visions into visually stunning experiences, bringing ideas
-          to life in ways you never thought possible. Let’s create something jaw-dropping together!
-        </p>
-
-        {/* Accordion */}
-        <div className="mt-8 space-y-4">
-          {accordionItems.map((item, index) => (
-            <div key={index} className="border-b pb-2">
-              <button
-                className="flex justify-between items-center w-full text-left font-medium text-lg"
-                onClick={() => toggleAccordion(index)}
-              >
-                {item.title}
-                <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
-              </button>
-              {openIndex === index && (
-                <p className="mt-2 text-gray-600">{item.content}</p>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Right Side */}
-      <div className="flex-1 flex justify-center">
-        <Image
-          src="/cgi-image.jpg" // replace with your image path
-          alt="CGI Content Work"
-          width={500}
-          height={400}
-          className="rounded-[100px]  rounded-br-none shadow-lg bg-white   object-cover"
-        />
-      </div>
-    </section>
-  );
-}
