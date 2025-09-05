@@ -25,7 +25,7 @@ export default function ServicesNavigator() {
   };
 
   return (
-    <section className="w-full h-full flex flex-col justify-center items-center min-h-screen text-center py-12">
+    <section className="w-full h-full mt-20 flex flex-col justify-center items-center min-h-screen text-center py-12">
       <div className="min-h-[60vh]  bg-white text-black justify-center flex flex-col gap-6">
       <h2 className="text-5xl font-extrabold">Content Marketing</h2>
       <p className="text-5xl italic mb-8">Services</p>

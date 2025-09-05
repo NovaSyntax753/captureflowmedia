@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm"
 
 const page = () => {
   return (
-    <div className="flex flex-col bg-white items-center h-full w-full justify-center">
+    <div className="flex flex-col mt-20 bg-white items-center h-full w-full justify-center">
         <div className="w-full h-full ">
             <ContactForm text1="Let's" text2="talk!" />
         </div>

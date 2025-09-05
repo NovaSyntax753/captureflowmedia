@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const CreativitySection = () => {
   return (
-    <section className="w-full bg-black text-white px-6 md:px-12 lg:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
+    <section className="relative w-full bg-black text-white px-6 md:px-12 lg:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
       
       {/* Left Content */}
       <div className="w-full md:w-1/2 text-center md:text-left">

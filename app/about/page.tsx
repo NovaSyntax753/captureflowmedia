@@ -38,7 +38,7 @@ export default function Page() {
   ];
 
   return (
-    <section className="w-full h-full min-h-screen bg-black text-white text-center py-12">
+    <section className="w-full h-full mt-20 min-h-screen bg-black text-white text-center py-12">
       <About />
       {/* <CgiContentSection /> */}
        <section className="w-full  py-2 min-h-[25vh]">
