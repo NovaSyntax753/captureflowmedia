@@ -38,8 +38,8 @@ export default function ClientsMarquee() {
   return (
     <section className="w-full bg-white text-black border-t border-b border-gray-700 py-4 flex flex-col sm:flex-row items-center overflow-hidden">
       {/* Left Text (on top for mobile, left for desktop) */}
-      <div className="flex-shrink-0 px-6 sm:h-full  sm:border-b-0 sm:border-r border-gray-600 text-lg font-semibold text-center sm:text-left w-full sm:w-auto pb-2 sm:pb-0">
-        Our Clients
+      <div className="flex-shrink-0 min-w-[340px] px-6   sm:h-full  sm:border-b-0 sm:border-r border-gray-600 text-lg font-semibold text-center sm:text-right w-full sm:w-auto pb-2 sm:pb-0">
+        Top Clients we have worked with
       </div>
 
       {/* Divider only on desktop */}
@@ -47,14 +47,14 @@ export default function ClientsMarquee() {
 
       {/* Marquee */}
       <div className="relative flex-1 overflow-hidden w-full">
-        <div className="flex w-max animate-marquee gap-6 py-2">
+        <div className="flex w-max animate-marquee gap-6 py-1">
           {clients.map((client, i) => (
             <div key={`set1-${i}`} className="shrink-0">
               <Image
                 src={client.image}
                 alt={client.name}
-                width={64}
-                height={64}
+                width={35}
+                height={35}
                 className="object-cover rounded-md"
               />
             </div>
@@ -64,8 +64,8 @@ export default function ClientsMarquee() {
               <Image
                 src={client.image}
                 alt={client.name}
-                width={64}
-                height={64}
+                width={35}
+                height={ 35}
                 className="object-cover rounded-md"
               />
             </div>

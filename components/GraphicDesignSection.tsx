@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import graphicsdesign from "../assets/graphics-design2.png"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { FaRegImage, FaPaintBrush, FaLightbulb } from "react-icons/fa";

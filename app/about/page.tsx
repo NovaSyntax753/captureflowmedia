@@ -1,26 +1,8 @@
 "use client";
-import { useState } from "react";
 import howwework from "../../assets/how we work.png"
 import ribbon from "../../assets/ribbon_Vector-p-2600.png";
-const tabs = [
-  { id: "cgi", label: "3D, CGI & VFX" },
-  { id: "video", label: "Video Production" },
-  { id: "digital", label: "Digital Art" },
-  { id: "photoshoot", label: "Commercial Photoshoot" },
-  { id: "ugc", label: "Community & UGC" },
-];
 
-export default function ServicesNavigator() {
-  const [active, setActive] = useState("cgi");
-
-  const handleClick = (id: string) => {
-    setActive(id);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
-
+export default function Page() {
 
  const leadMachineHighlights = [
     {
@@ -96,56 +78,56 @@ import Founders from "@/components/Founders";
 import About from "@/components/About";
 import AnimatedTitle from "@/components/Animated";
 
-const accordionItems = [
-  {
-    title: "Unreal Visual",
-    content: "We create jaw-dropping CGI visuals that push the limits of imagination and innovation."
-  },
-  {
-    title: "Imagination Without Limit",
-    content: "Transforming ideas into stunning 3D content that goes beyond conventional creativity."
-  },
-  {
-    title: "Mind Blowing Conceptualizing",
-    content: "We conceptualize unique designs and animations to bring your brand to life in unforgettable ways."
-  }
-];
+// const accordionItems = [
+//   {
+//     title: "Unreal Visual",
+//     content: "We create jaw-dropping CGI visuals that push the limits of imagination and innovation."
+//   },
+//   {
+//     title: "Imagination Without Limit",
+//     content: "Transforming ideas into stunning 3D content that goes beyond conventional creativity."
+//   },
+//   {
+//     title: "Mind Blowing Conceptualizing",
+//     content: "We conceptualize unique designs and animations to bring your brand to life in unforgettable ways."
+//   }
+// ];
 
- function CgiContentSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+//  function CgiContentSection() {
+//   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleAccordion = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+//   const toggleAccordion = (index: number) => {
+//     setOpenIndex(openIndex === index ? null : index);
+//   };
 
-  return (
-    <section className="w-full bg-black py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12">
-      {/* Right Side */}
+//   return (
+//     <section className="w-full bg-black py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12">
+//       {/* Right Side */}
   
-      <div className="flex-1 flex justify-center">
-        <Image
-          src="/logo1.png" // replace with your image path
-          alt="CGI Content Work"
-          width={500}
-          height={500}
-          className="rounded-2xl shadow-lg bg-white   object-cover"
-        />
-      </div>
-      {/* Left Side */}
-      <div className="flex-1">
-        <p className="text-xl lg:text-2xl font-italic mb-6 mt-6 text-gray-500 leading-relaxed text-left">
-          Kkapture Flow Media was founded with a simple mission: help businesses grow by
-using the most powerful content format in the world — VIDEO.
-Unlike typical agencies that just deliver designs or edits, we focus on what actually
-matters — getting you clients.
-Our proprietary strategy, the Video Lead Machine, blends engaging visuals with
-lead-generation funnels to help you stand out, build trust, and convert
-        </p>
-      </div>
+//       <div className="flex-1 flex justify-center">
+//         <Image
+//           src="/logo1.png" // replace with your image path
+//           alt="CGI Content Work"
+//           width={500}
+//           height={500}
+//           className="rounded-2xl shadow-lg bg-white   object-cover"
+//         />
+//       </div>
+//       {/* Left Side */}
+//       <div className="flex-1">
+//         <p className="text-xl lg:text-2xl font-italic mb-6 mt-6 text-gray-500 leading-relaxed text-left">
+//           Kkapture Flow Media was founded with a simple mission: help businesses grow by
+// using the most powerful content format in the world — VIDEO.
+// Unlike typical agencies that just deliver designs or edits, we focus on what actually
+// matters — getting you clients.
+// Our proprietary strategy, the Video Lead Machine, blends engaging visuals with
+// lead-generation funnels to help you stand out, build trust, and convert
+//         </p>
+//       </div>
 
-    </section>
-  );
-}
+//     </section>
+//   );
+// }
 
 
 

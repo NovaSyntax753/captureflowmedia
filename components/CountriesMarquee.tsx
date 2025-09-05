@@ -1,14 +1,6 @@
 "use client";
-import Image from "next/image";
-import conso from "../assets/company/conso.png";
-import ark from "../assets/company/ark.png";
-import dental from "../assets/company/dental.png";
-import blissfull from "../assets/company/blissfull.png";
-import quickfintax from "../assets/company/quickfintax.png";
-import karma from "../assets/company/karma.png";
 
 import CountryFlag from 'react-country-flag';
-import AnimatedTitle from './Animated';
 
 const countries = [
   { name: 'USA', code: 'US' },
@@ -20,7 +12,7 @@ const countries = [
   { name: 'UAE', code: 'AE' },
   { name: 'France', code: 'FR' },
   { name: 'Germany', code: 'DE' },
-    { name: 'USA', code: 'US' },
+  { name: 'USA', code: 'US' },
   { name: 'UK', code: 'GB' },
   { name: 'Canada', code: 'CA' },
   { name: 'India', code: 'IN' },
@@ -31,12 +23,12 @@ const countries = [
   { name: 'Germany', code: 'DE' },
 ];
 
-export default function ClientsMarquee() {
+export default function CountriesMarquee() {
   return (
     <section className="w-full bg-white text-black border-t border-b border-gray-700 py-4 flex flex-col sm:flex-row items-center overflow-hidden">
       {/* Left Text (on top for mobile, left for desktop) */}
       <div className="flex-shrink-0 px-6 sm:h-full  sm:border-b-0 sm:border-r border-gray-600 text-lg font-semibold text-center sm:text-left w-full sm:w-auto pb-2 sm:pb-0">
-        We're available in these countries
+        We&apos;re available in these countries
       </div>
 
       {/* Divider only on desktop */}
