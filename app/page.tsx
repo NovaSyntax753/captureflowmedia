@@ -9,9 +9,10 @@ import CountriesMarquee from '@/components/CountriesMarquee'
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen overflow-hidden bg-black text-white font-sans">
       <Hero/>
       <ServiceBanner/>
+      <div className="py-5 bg-white"></div>
       <CreativitySection/>
       <WhatWeDo/>
       <Spotlight />

@@ -4,7 +4,7 @@ import VideoCardLeft from "./VideoCardLeft";
 
 const Hero = () => {
   return (
-    <section className="w-full min-h-screen bg-white flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12 gap-10">
+    <section className="w-full mt-20 sm:mt-10 min-h-screen bg-white flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12 gap-10">
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between gap-10">
         {/* Left Video */}
         <div className="flex justify-center items-center w-full md:w-1/2">
