@@ -24,7 +24,7 @@ const founders = [
 
 const Founders = () => (
   <section className="w-full relative py-10 sm:py-14 md:py-20  flex flex-col items-center" id="founders">
-    <Image src={ribbon.src} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
+    <Image src={ribbon.src} height={100} width={100} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
     <AnimatedTitle>
       <h2 className="text-xl sm:text-3xl md:text-5xl font-bold mb-8 sm:mb-10 text-center text-[#53c926]">Meet the Co-Founders</h2>
     </AnimatedTitle>

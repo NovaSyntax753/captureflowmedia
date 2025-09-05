@@ -1,28 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 const WhatWeDo = () => {
   const services = [
     {
-      emoji: "🍬",
-      title: "Serve eye candy, always",
-      desc: "With 6+ years in the field of content marketing, we create thumb-stopping content for brands that's straight-up fire to make your brand stay front and center.",
+      emoji: "🎥",
+      title: "Turn Videos Into Leads",
+      desc: "We don’t just edit videos — we craft content that attracts attention, builds trust, and gets your audience to take action. Every video is designed to fuel your lead pipeline.",
     },
     {
       emoji: "📈",
-      title: "Build real & organic hype",
-      desc: "Our goal? Genuine engagement that actually means something. We're here to turn your TG into loyal fans, creating real conversations around your brand.",
+      title: "Generate Qualified Leads",
+      desc: "Our Video Lead Machine framework converts attention into real prospects. From scroll-stopping reels to high-converting ad creatives, we focus on ROI — not vanity metrics.",
     },
     {
-      emoji: "🔥",
-      title: "Cook up dope concepts",
-      desc: "The sky is truly the limit for us! From executing wild ideas to creating trendsetting campaigns, we’re all about bringing the big vibes and engagement.",
+      emoji: "✨",
+      title: "Create Content That Sells",
+      desc: "Good design looks nice. Great design makes money. Our graphics, motion visuals, and edits are built to not just look aesthetic, but also push your audience closer to saying “yes.”",
     },
     {
-      emoji: "📢",
-      title: "Community Building",
-      desc: "Our approach goes beyond numbers. We cultivate fanbases creating a space where followers become loyal advocates who share, support, & celebrate with you.",
+      emoji: "🤝",
+      title: "Build Lasting Trust",
+      desc: "Leads only convert when they trust you. Through consistent content, authority-driven videos, and brand storytelling, we turn cold audiences into loyal clients.",
     },
   ];
 
@@ -40,7 +41,7 @@ const WhatWeDo = () => {
       {/* Services Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
         {services.map((service, index) => (
-          <div key={index} className="flex flex-col w-[300px]  justify-start items-center text-center">
+        <div key={index} className="flex flex-col w-[300px] p-2 justify-start items-center text-center">
             <div className="text-left w-full  text-4xl mb-4">{service.emoji}</div>
             <h3 className="text-left w-full font-bold text-lg mb-2">{service.title}</h3>
             <p className="text-gray-300 text-sm leading-relaxed text-start">
@@ -51,9 +52,9 @@ const WhatWeDo = () => {
       </div>
 
       {/* CTA Button */}
-      <button className="px-8 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
+      <Link href={"/services"} className="px-8 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
         Our services
-      </button>
+      </Link>
     </section>
   );
 };

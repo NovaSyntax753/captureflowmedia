@@ -10,7 +10,7 @@ const FounderCard = ({ image, name, position, linkedin,bio }: { image: string; n
         <div className="card__shine" />
         <div className="card__glow" />
         <div className="card__avatar-wrapper">
-          <Image src={image} alt={name} className="card__avatar" loading="lazy" />
+          <Image src={image} alt={name} height={128} width={128} className="card__avatar" loading="lazy" />
         </div>
         <div className="card__content">
           <div className="card__name">{name}</div>

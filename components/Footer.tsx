@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -10,9 +11,7 @@ const Footer = () => {
         {/* Left Section */}
         <div>
           {/* Logo */}
-          <h2 className="text-3xl font-bold text-lime-400">
-            neon<span className="text-white">pigeon</span>
-          </h2>
+          <Image src="/logo1.png" alt="Logo" width={150} height={50} className="bg-white" />
 
           <p className="mt-4 text-gray-300">
             Get the latest Content Marketing news in your inbox
@@ -73,7 +72,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-        <p>© Neon Pigeon Creatives &nbsp; | &nbsp; Privacy Policy</p>
+        <p>© KKaptureFLow Media &nbsp; | &nbsp; Privacy Policy</p>
         <p>
           Crafted with <span className="text-pink-500">❤</span> by Quickfusion
           Innovations

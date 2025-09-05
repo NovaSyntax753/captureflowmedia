@@ -39,7 +39,7 @@ const page = () => {
         <div className="flex flex-col items-center gap-3">
           <Phone className="w-10 h-10" />
           <p className="text-sm md:text-base">
-            +91 9873370885 / +91 8130606202
+            +91 83909 15155
           </p>
         </div>
       </div>

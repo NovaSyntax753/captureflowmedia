@@ -7,7 +7,8 @@ const navLinks = [
     { label: 'Work', href: '/work' },
     { label: 'Contact', href: '/contact' },
 ];
-
+import logo from '../public/logo1.png';
+import Image from 'next/image';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -35,11 +36,11 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <div className="relative h-24 py-2 flex flex-col bg-white text-black  font-sans items-center justify-center text-center">
+    <div className="relative h-24 py-2 border-b-2  flex flex-col bg-white text-black  font-sans items-center justify-center text-center">
       <div className="container mx-auto flex flex-col md:flex-row justify-between px-4 md:px-12 items-center relative">
         <div className="min-w-1/2 flex items-center lg:w-auto justify-between lg:justify-start gap-4">
-          {/* <img src={LeadsflowMediaLogo.src} alt="Leadsflow Media Logo" className="h-16 md:h-20" /> */}
-          <h1 className="text-2xl font-bold">KkaptureFlow Media</h1>
+          <Image src={logo.src} height={100} width={100} alt="KkaptureFlow Media Logo" className="object-contain sm:h-20 h-16" />
+          {/* <h1 className="text-2xl font-bold">KkaptureFlow Media</h1> */}
           <button
             onClick={toggleMenu}
             className="lg:hidden text-black focus:outline-none z-50"

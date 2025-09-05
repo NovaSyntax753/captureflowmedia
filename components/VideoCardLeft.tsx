@@ -10,7 +10,7 @@ type VideoPlayerProps = {
 const VideoCardLeft: React.FC<VideoPlayerProps> = ({ src, className }) => {
   return (
     <div
-      className={`overflow-hidden rounded-[100px] rounded-br-none`}
+      className={`overflow-hidden min-w-[280px] max-h-[500px] rounded-[100px] rounded-br-none`}
     >
       <video
         src={src}
@@ -18,7 +18,7 @@ const VideoCardLeft: React.FC<VideoPlayerProps> = ({ src, className }) => {
         loop
         muted
         playsInline
-        className={`object-cover ${className}`}
+        className={`w-full h-full object-cover ${className}`}
       />
     </div>
   );

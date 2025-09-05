@@ -5,15 +5,15 @@ import React from "react";
 const Spotlight = () => {
   const videos = [
     {
-      src: "/videos/video1.mp4",
+      src: "/video16.1.mp4",
       alt: "Video 1",
     },
     {
-      src: "/videos/video2.mp4",
+      src: "/video15.mp4",
       alt: "Video 2",
     },
     {
-      src: "/videos/video3.mp4",
+      src: "/video14.1.mp4",
       alt: "Video 3",
     },
   ];
@@ -33,7 +33,7 @@ const Spotlight = () => {
         {videos.map((video, idx) => (
           <div
             key={idx}
-            className="w-[280px] h-[500px] rounded-2xl overflow-hidden shadow-lg bg-black hover:scale-105 transition-transform duration-300"
+            className="w-[280px] h-[500px] rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300"
           >
             <video
               src={video.src}

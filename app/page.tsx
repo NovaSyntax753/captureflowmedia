@@ -5,6 +5,9 @@ import WhatWeDo from '@/components/WhatWeDo'
 import Spotlight from '@/components/Spotlight'
 import ClientsMarquee from '@/components/ClientsMarquee'
 import ContactForm from '@/components/ContactForm'
+import ClientCards from '@/components/ClientCards'
+import MarqueeSection from "@/components/MarqueeSection";
+import CountriesMarquee from '@/components/CountriesMarquee'
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
       <WhatWeDo/>
       <Spotlight />
       <ClientsMarquee />
+      <div className="py-5 bg-white"></div>
+      <CountriesMarquee />
       <ContactForm text1="Talk" text2="to us" />
     </div>
   )

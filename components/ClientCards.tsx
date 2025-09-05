@@ -2,12 +2,12 @@
 import ribbon from "../assets/ribbon_Vector-p-2600.png"
 import AnimatedTitle from './Animated';
 import Card from './Card'
-import conso from '../assets/conso.png';
-import ark from '../assets/ark.png';
-import dental from '../assets/dental.png';
-import blissfull from '../assets/blissfull.png';
-import quickfintax from '../assets/quickfintax.png';
-import karma from '../assets/karma.png';
+import conso from '../assets/company/conso.png';
+import ark from '../assets/company/ark.png';
+import dental from '../assets/company/dental.png';
+import blissfull from '../assets/company/blissfull.png';
+import quickfintax from '../assets/company/quickfintax.png';
+import karma from '../assets/company/karma.png';
 import Image from 'next/image';
 const clients = [
   {
@@ -45,7 +45,7 @@ const clients = [
 const ClientCards = () => {
   return (
     <section className="w-full py-10 md:py-16 relative overflow-hidden">
-          <Image src={ribbon.src} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
+          <Image src={ribbon.src} fill alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4">
         <AnimatedTitle>
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-[#53c926] mb-8 text-center animate-fadeInUp">Top Clients We Have Served</h2>
