@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 const videos = [
-  { id: 8, src: "/video16.mp4" },
+  { id: 8, src: "/video16.1.mp4" },
   { id: 1, src: "/video15.mp4" },
-  { id: 14, src: "/video14.mp4" },
+  { id: 14, src: "/video14.1.mp4" },
   { id: 2, src: "/video2.mp4" },
   { id: 3, src: "/video3.mp4" },
   { id: 4, src: "/video4.mp4" },
