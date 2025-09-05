@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 const videos = [
-  { id: 1, src: "/video1.mp4" },
+  { id: 8, src: "/video16.mp4" },
+  { id: 1, src: "/video15.mp4" },
+  { id: 14, src: "/video14.mp4" },
   { id: 2, src: "/video2.mp4" },
   { id: 3, src: "/video3.mp4" },
   { id: 4, src: "/video4.mp4" },
@@ -9,7 +11,6 @@ const videos = [
   { id: 6, src: "/video6.mp4" },
   { id: 7, src: "/video7.mp4" },
   { id: 9, src: "/video9.mp4" },
-  { id: 8, src: "/video8.mp4" },
   { id: 10, src: "/video10.mp4" },
   { id: 11, src: "/video11.mp4" },
   { id: 12, src: "/video12.mp4" },
