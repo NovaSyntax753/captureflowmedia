@@ -4,10 +4,7 @@ import Image from "next/image"
 const About = () => {
   return (
     <div id="Who we are" className="relative w-full py-20 px-4 md:px-12 bg-white text-black overflow-hidden">
-      <div className="absolute inset-0">
-        <Image src={ribbon.src} fill
-          alt="Background" className="w-full h-full  object-cover opacity-20" />
-      </div>
+
       <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-5 relative z-10">
         {/* Left side: Title and Image */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2">

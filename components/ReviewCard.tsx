@@ -104,9 +104,8 @@ const StyledWrapper = styled.div`
     inset: 0;
     background: linear-gradient(
       120deg,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(83, 201, 38, 0.18) 50%,
-      rgba(255, 255, 255, 0) 90%
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(255, 255, 255, 0) 100%
     );
     opacity: 0;
     transition: opacity 0.3s ease;

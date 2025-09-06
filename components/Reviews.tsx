@@ -71,7 +71,7 @@ const Reviews = () => {
   const totalSlides = Math.ceil(reviews.length / cardsPerView);
 
   return (
-    <section className="w-full py-8 sm:py-12 md:py-16  relative overflow-hidden flex flex-col justify-center" id="testimonials">
+    <section className="scroll-mt-32 w-full py-8 sm:py-12 md:py-16  relative overflow-hidden flex flex-col justify-center" id="testimonials">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 flex flex-col justify-start h-full">
         <AnimatedTitle>
           <h2 className="text-xl sm:text-3xl md:text-5xl font-bold  italic mb-4 sm:mb-8 md:mb-10 text-center">Words from Our Clients</h2>
@@ -85,7 +85,7 @@ const Reviews = () => {
           onFocus={() => setIsActive(true)}
           onBlur={() => setIsActive(false)}
         >
-          <div className="relative flex items-center justify-center h-auto min-h-[260px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
+          <div className="relative  flex items-center justify-center h-auto min-h-[280px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px]">
             {/* Left Button */}
             <button
               onClick={prevSlide}
@@ -97,7 +97,7 @@ const Reviews = () => {
             </button>
             <div className="overflow-hidden w-full">
               <div
-                className="flex transition-transform duration-1000 ease-in-out"
+                className="flex transition-transform duration-1000 ease-in-out items-center py-1"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {Array.from({ length: totalSlides }).map((_, slideIndex) => (

@@ -55,7 +55,7 @@ export default function AboutSection() {
     setActive(id);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" , inline: "nearest" });
     }
   };
 
@@ -108,19 +108,8 @@ export default function AboutSection() {
         <Founders />
 
         {/* Approach with Image */}
-        <div id="How we work" className="flex flex-col items-center gap-8">
-          <AnimatedTitle>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-              How We Work 💡
-            </h3>
-          </AnimatedTitle>
-          <Image
-            src={howwework}
-            alt="How We Work"
-            width={800}
-            height={400}
-            className="object-contain rounded-xl shadow-lg bg-white"
-          />
+        <div id="How we work" className="flex flex-col items-center gap-8 scroll-mt-20">
+          <Timeline />
           <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
             {leadMachineHighlights2.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
@@ -129,7 +118,7 @@ export default function AboutSection() {
             </div>
             ))}
           </div>
-          <Timeline />
+          
           <Reviews />
         </div>
       </div>

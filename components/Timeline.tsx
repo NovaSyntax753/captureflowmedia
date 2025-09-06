@@ -10,27 +10,27 @@ import {
 
 const steps = [
   {
-    icon: <FaRocket className="w-5 h-5" />,
+    icon: <FaRocket className="w-5 h-5 text-[#53c926]" />,
     title: "Strategy Call & Personalized Video Plan",
     desc: "Build trust, position you as the authority, and attract high-ticket clients.",
   },
   {
-    icon: <FaFileAlt className="w-5 h-5" />,
+    icon: <FaFileAlt className="w-5 h-5 text-[#53c926]" />,
     title: "Script Framework That Converts",
     desc: "Hooks, insights, and CTAs that connect emotionally and bring in leads.",
   },
   {
-    icon: <FaMagic className="w-5 h-5" />,
+    icon: <FaMagic className="w-5 h-5 text-[#53c926]" />,
     title: "You Record → We Do the Magic",
     desc: "Guidance + editing to deliver scroll-stopping branded videos.",
   },
   {
-    icon: <FaLinkedin className="w-5 h-5" />,
+    icon: <FaLinkedin className="w-5 h-5 text-[#53c926]" />,
     title: "LinkedIn Strategy & Automatic Clients",
     desc: "Profile optimization, smart scripts, and consistent high-ticket leads.",
   },
   {
-    icon: <FaStar className="w-5 h-5" />,
+    icon: <FaStar className="w-5 h-5 text-[#53c926]" />,
     title: "Dream Outcome",
     desc: "Your calendar fills with premium leads. Clients come without burnout.",
   },
@@ -44,34 +44,36 @@ export default function Timeline() {
           How We Work
         </h2>
 
-        <div className="relative flex flex-col sm:flex-row items-center sm:justify-between sm:space-x-8">
+        {/* Wrapper */}
+        <div className="relative flex flex-col sm:flex-row sm:justify-between sm:space-x-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="flex-1 flex flex-col items-center text-center relative"
+              className="relative flex flex-col items-center text-center sm:flex-1 mb-12 sm:mb-0"
             >
+              {/* Connector Line */}
+              
+
+              {/* Horizontal (desktop) */}
+              {index !== steps.length - 1 && (
+                <div className="hidden sm:block absolute top-6 left-1/2 w-full border-t border-gray-300"></div>
+                )}
+
               {/* Icon */}
-              <div className="flex items-center justify-center w-12 h-12 rounded-xl border border-gray-200 bg-white shadow-sm z-10">
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl border border-gray-200 bg-white shadow-md relative z-10">
                 {step.icon}
               </div>
 
-              {/* Connector Line */}
-              {index !== steps.length - 1 && (
-                <div className="hidden sm:block absolute top-6 left-1/2 w-full border-t border-gray-300 -z-0"></div>
-              )}
-
               {/* Content */}
-              <div className="mt-6">
+              <div className="mt-6 max-w-xs">
                 <h3 className="text-base font-semibold text-gray-900">
                   {step.title}
                 </h3>
-                <p className="text-sm text-gray-600 mt-2 max-w-xs mx-auto">
-                  {step.desc}
-                </p>
+                <p className="text-sm text-gray-600 mt-2">{step.desc}</p>
               </div>
             </motion.div>
           ))}

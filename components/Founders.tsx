@@ -23,8 +23,8 @@ const founders = [
 ];
 
 const Founders = () => (
-  <section className="w-full relative py-10 sm:py-14 md:py-20  flex flex-col items-center justify-start" id="founders">
-    <Image src={ribbon.src} height={100} width={100} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" />
+  <section className="w-full scroll-m-14 relative py-10 sm:py-14 md:py-20  flex flex-col items-center justify-start" id="founders">
+    {/* <Image src={ribbon.src} height={100} width={100} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" /> */}
     <AnimatedTitle>
       <h2 className="text-xl sm:text-3xl md:text-5xl italic font-bold mb-8 sm:mb-10 ">Meet Our Founders</h2>
     </AnimatedTitle>

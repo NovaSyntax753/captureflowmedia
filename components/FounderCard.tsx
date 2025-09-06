@@ -137,8 +137,8 @@ const StyledWrapper = styled.div`
     background: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0) 40%,
-      rgba(83, 201, 38, 0.18) 50%,
-      rgba(255, 255, 255, 0) 90%
+            rgba(255, 255, 255, 0.45) 60%,
+      rgba(255, 255, 255, 0) 100%
     );
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -148,11 +148,6 @@ const StyledWrapper = styled.div`
   .card__glow {
     position: absolute;
     inset: -10px;
-    background: radial-gradient(
-      circle at 50% 0%,
-      rgba(46, 125, 50, 0.45) 0%,
-      rgba(46, 125, 50, 0) 100%
-    );
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
