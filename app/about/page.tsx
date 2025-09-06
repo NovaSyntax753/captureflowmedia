@@ -67,6 +67,7 @@ export default function Page() {
                 </div>
       </section>
       <FlowCircles />
+      <Reviews />
 
     </section>
   );
@@ -77,6 +78,7 @@ import Image from "next/image";
 import Founders from "@/components/Founders";
 import About from "@/components/About";
 import AnimatedTitle from "@/components/Animated";
+import Reviews from "@/components/Reviews";
 
 // const accordionItems = [
 //   {
