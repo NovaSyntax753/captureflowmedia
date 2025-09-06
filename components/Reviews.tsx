@@ -71,10 +71,10 @@ const Reviews = () => {
   const totalSlides = Math.ceil(reviews.length / cardsPerView);
 
   return (
-    <section className="w-full py-8 sm:py-12 md:py-16  relative overflow-hidden flex flex-col justify-center" id="reviews">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 flex flex-col justify-center h-full">
+    <section className="w-full py-8 sm:py-12 md:py-16  relative overflow-hidden flex flex-col justify-center" id="testimonials">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 flex flex-col justify-start h-full">
         <AnimatedTitle>
-          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-8 md:mb-10 text-center text-[#53c926]">Words from Our Clients</h2>
+          <h2 className="text-xl sm:text-3xl md:text-5xl font-bold  italic mb-4 sm:mb-8 md:mb-10 text-center">Words from Our Clients</h2>
         </AnimatedTitle>
         <div
           className="relative max-w-7xl mx-auto flex flex-col justify-center h-auto px-8 sm:px-12 md:px-20 focus:outline-none"

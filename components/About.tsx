@@ -3,7 +3,7 @@ import Image from "next/image"
 
 const About = () => {
   return (
-    <div className="relative w-full py-20 px-4 md:px-12 bg-black text-white overflow-hidden">
+    <div id="Who we are" className="relative w-full py-20 px-4 md:px-12 bg-white text-black overflow-hidden">
       <div className="absolute inset-0">
         <Image src={ribbon.src} fill
           alt="Background" className="w-full h-full  object-cover opacity-20" />
@@ -16,6 +16,9 @@ const About = () => {
 
         {/* Right side: Text Content */}
         <div className="md:w-1/2 text-lg sm:text-xl md:text-2xl leading-relaxed">
+              <h2 className="text-3xl md:text-4xl text-center font-bold">
+        About Us
+      </h2>
         <p className="mb-4">
             Kkapture Flow Media was founded with a simple mission: help businesses grow by
             using the most powerful content format in the world — <span className="font-semibold">VIDEO</span>.
