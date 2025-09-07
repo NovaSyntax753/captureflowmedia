@@ -17,9 +17,10 @@ const CreativitySection = () => {
             the noise and build loyalty.
           </span>
         </h2>
-
-        <Link href={"/contact"} className="mt-8 px-6 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
+        <Link href="/contact">
+        <button className="mt-10 px-6 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
           Work with us
+        </button>
         </Link>
       </div>
 
