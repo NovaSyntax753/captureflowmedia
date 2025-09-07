@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 const CreativitySection = () => {
   return (
     <section className="relative w-full bg-black text-white px-6 md:px-12 lg:px-20 py-16 flex flex-col md:flex-row items-center justify-between gap-10">
@@ -18,20 +18,21 @@ const CreativitySection = () => {
           </span>
         </h2>
 
-        <button className="mt-8 px-6 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
+        <Link href={"/contact"} className="mt-8 px-6 py-3 rounded-full border border-white font-semibold hover:bg-white hover:text-black transition">
           Work with us
-        </button>
+        </Link>
       </div>
 
       {/* Right Graph */}
       <div className="w-full md:w-1/2">
-        <div className="bg-[#1a1a1a] rounded-3xl p-6 shadow-lg">
-          <Image
-            src="/graph.png" // replace with your chart image
-            alt="Creativity Graph"
-            width={600}
-            height={400}
-            className="rounded-2xl w-full h-auto"
+        <div className=" rounded-3xl overflow-hidden border-2 rounded-bl-none border-white/20 shadow-lg">
+          <video  
+            src="/graph.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-auto object-cover"
           />
         </div>
       </div>

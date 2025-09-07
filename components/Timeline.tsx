@@ -38,14 +38,14 @@ const steps = [
 
 export default function Timeline() {
   return (
-    <section className="w-full py-20 bg-white">
+    <section className="w-full py-20  bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold text-gray-900 mb-16">
+        <h2 className="text-3xl sm:text-5xl font-bold italic text-gray-900 mb-16">
           How We Work
         </h2>
 
         {/* Wrapper */}
-        <div className="relative flex flex-col sm:flex-row sm:justify-between sm:space-x-8">
+        <div className="relative flex pt-10 flex-col sm:flex-row sm:justify-between sm:space-x-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}

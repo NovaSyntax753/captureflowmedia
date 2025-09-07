@@ -108,19 +108,19 @@ export default function AboutSection() {
         <Founders />
 
         {/* Approach with Image */}
-        <div id="How we work" className="flex flex-col items-center gap-8 scroll-mt-20">
+        <div id="How we work" className="flex  flex-col items-center gap-8 scroll-mt-20">
           <Timeline />
-          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
+        </div>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
             {leadMachineHighlights2.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
               <span className="text-5xl mb-4">{item.icon}</span>
               <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
             </div>
             ))}
-          </div>
+        </div>
           
           <Reviews />
-        </div>
       </div>
     </section>
   );

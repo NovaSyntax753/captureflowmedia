@@ -3,6 +3,7 @@
 import React from "react";
 import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
         {/* Left Section */}
         <div>
           {/* Logo */}
-          <Image src="/logo1.png" alt="Logo" width={150} height={50} className="bg-white" />
+          <Image src="/logo2.png" alt="Logo" width={150} height={50} className="bg-white" />
 
           <p className="mt-4 text-gray-300">
             Get the latest Content Marketing news in your inbox
@@ -29,12 +30,12 @@ const Footer = () => {
 
           {/* Buttons */}
           <div className="flex gap-4 mt-6">
-            <button className="px-6 py-2 rounded-full border border-gray-400 hover:bg-white hover:text-black transition">
+            <Link href={"/contact"} className="px-6 py-2 rounded-full border border-gray-400 hover:bg-white hover:text-black transition">
               Brief Us
-            </button>
-            <button className="px-6 py-2 rounded-full border border-gray-400 hover:bg-white hover:text-black transition">
+            </Link>
+            <Link href={"/about"} className="px-6 py-2 rounded-full border border-gray-400 hover:bg-white hover:text-black transition">
               Our Credentials
-            </button>
+            </Link>
           </div>
         </div>
 
@@ -74,8 +75,8 @@ const Footer = () => {
       <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
         <p>© KKaptureFLow Media &nbsp; | &nbsp; Privacy Policy</p>
         <p>
-          Crafted with <span className="text-pink-500">❤</span> by Quickfusion
-          Innovations
+          Crafted with <span className="text-pink-500">❤</span> by KKaptureFlow
+          Media
         </p>
       </div>
     </footer>

@@ -1,7 +1,9 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "../public/logo1.png";
+import { usePathname } from "next/navigation"; // ✅ To detect current route
+import logo from "../public/logo4.png";
+import logo1 from "../public/logo9.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -13,6 +15,10 @@ const navLinks = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const pathname = usePathname(); // ✅ current route
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -20,42 +26,41 @@ const Navbar = () => {
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
 
-  // Smooth scroll for anchor links
+  // Navbar hide on scroll down, show on scroll up
   useEffect(() => {
-    const handleSmoothScroll = (e: MouseEvent) => {
-      if (e.target instanceof HTMLAnchorElement && e.target.hash) {
-        const el = document.querySelector(e.target.hash);
-        if (el) {
-          e.preventDefault();
-          setIsMenuOpen(false);
-          window.scrollTo({
-            top: (el as HTMLElement).offsetTop - 80, // offset for sticky nav
-            behavior: "smooth",
-          });
-        }
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setShowNavbar(false); // scrolling down → hide
+      } else {
+        setShowNavbar(true); // scrolling up → show
       }
+      setLastScrollY(window.scrollY);
     };
-    document.addEventListener("click", handleSmoothScroll);
-    return () => document.removeEventListener("click", handleSmoothScroll);
-  }, []);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  // Dynamic background based on route
+  const navBg = pathname === "/work" ? "bg-black text-white" : "bg-white text-black";
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 h-24 py-2 border-b-2 flex flex-col bg-white text-black font-sans items-center justify-center text-center ">
+    <div
+      className={`fixed top-0 left-0 w-full z-50 h-24 py-2 border-b-2 flex flex-col font-sans items-center justify-center text-center transition-transform duration-300 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
+      } ${navBg}`}
+    >
       <div className="container mx-auto flex flex-col md:flex-row justify-between px-4 md:px-12 items-center relative">
         {/* Logo + Menu Button */}
         <div className="min-w-1/2 flex items-center lg:w-auto justify-between lg:justify-start gap-10 w-full">
           <Image
-            src={logo.src}
+            src={pathname === "/work" ? logo : logo1}
             height={100}
             width={100}
             alt="KkaptureFlow Media Logo"
@@ -63,7 +68,7 @@ const Navbar = () => {
           />
           <button
             onClick={toggleMenu}
-            className="lg:hidden text-black focus:outline-none z-110"
+            className="lg:hidden focus:outline-none z-110"
             aria-label="Toggle menu"
           >
             <svg
@@ -94,7 +99,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div
-          className={`fixed inset-0 bg-white bg-opacity-95 transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-0 ${navBg} bg-opacity-95 transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           } lg:hidden`}
         >
@@ -103,7 +108,7 @@ const Navbar = () => {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-black hover:text-gray-600 text-2xl block py-2 px-4"
+                  className="hover:opacity-75 text-2xl block py-2 px-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.label}
