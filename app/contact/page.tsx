@@ -10,7 +10,7 @@ const page = () => {
         <div className="w-full h-full ">
             <ContactForm text1="Let's" text2="talk!" />
         </div>
-    <div className="w-full h-full pb-5  text-black px-6 text-center">
+    <div className=" flex flex-col w-full h-full min-h-[400px] pb-5 gap-10  text-black px-6 text-center">
       {/* Heading */}
       <h2 className="text-6xl top-0 font-bold mb-4">
         Contact <span className="italic font-normal">Us</span>
@@ -20,8 +20,7 @@ const page = () => {
       <div className="">
         <p className="font-semibold text-lg">KkaptureFlow Media</p>
         <p className="max-w-xl text-wrap mx-auto text-gray-800 mb-10">
-          C-944, C Block, Sushant Lok Phase 1, Near Vyapar Kendra, Gurugram,
-          Haryana 122002
+          Second Floor, Inox Rd, above Bramha Hotel, near Shastri Nagar, Chapru Nagar, Sq, Shashtri Nagar, Nagpur, Maharashtra 440008
          </p>
       </div>
 

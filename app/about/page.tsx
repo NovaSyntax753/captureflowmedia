@@ -1,9 +1,5 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
-import howwework from "../../assets/how we work.png";
-import ribbon from "../../assets/ribbon_Vector-p-2600.png";
-import AnimatedTitle from "@/components/Animated";
 import About from "@/components/About";
 import Founders from "@/components/Founders";
 import Reviews from "@/components/Reviews";

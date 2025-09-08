@@ -1,10 +1,7 @@
-
-import ribbon from '../assets/ribbon_Vector-p-2600.png';
 import AnimatedTitle from './Animated';
 import FounderCard from './FounderCard';
 import pratik from '@/assets/pratikpatel.jpg'
 import dhruvi from '@/assets/dhruvipatel.jpg';
-import Image from 'next/image';
 const founders = [
   {
     name: 'Mr. Pratik Patel',

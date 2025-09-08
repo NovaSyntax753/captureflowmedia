@@ -44,7 +44,7 @@ const getCardsPerView = () => {
 const Reviews = () => {
   const [cardsPerView, setCardsPerView] = useState(1);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [, setIsActive] = useState(false); 
   const carouselRef = useRef(null);
 
   useEffect(() => {

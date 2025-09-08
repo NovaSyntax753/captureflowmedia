@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Youtube } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -45,10 +45,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl mb-4">Explore</h3>
           <ul className="space-y-2 text-gray-300">
-            <li><a href="/">Home</a></li>
-            <li><a href="/work">Work</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/work">Work</Link></li>
+            <li><Link href="/services">Services</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -57,17 +57,22 @@ const Footer = () => {
           <h3 className="text-xl mb-4">Contact Us</h3>
           <ul className="space-y-3 text-gray-300">
             <li className="flex items-center gap-2">
-              <Instagram size={18} /> @neonpigeon.in
+              <Instagram size={18} /> @kkaptureflowmedia
             </li>
             <li className="flex items-center gap-2">
               <Mail size={18} /> kkaptureflowmedia@gmail.com
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={18} /> 9873370885, 8130606202
+              <Phone size={18} /> +91 83909 15155
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={18} /> C-944, C Block, Sushant Lok Phase 1, Near Vyapar
-              Kendra, Gurugram, Haryana 122002
+              <Youtube size={18} /> @growwithpatels
+            </li>
+            <li className="flex items-center gap-2">
+              <MapPin size={18} /> 
+              <span className="max-w-xs">
+                Second Floor, Inox Rd, above Bramha Hotel, near Shastri Nagar, Chapru Nagar, Sq, Shashtri Nagar, Nagpur, Maharashtra 440008
+              </span>
             </li>
           </ul>
         </div>

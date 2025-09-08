@@ -1,4 +1,3 @@
-import ribbon from '../assets/ribbon_Vector-p-2600.png'
 import Image from "next/image"
 
 const About = () => {
