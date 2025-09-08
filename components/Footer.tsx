@@ -19,17 +19,19 @@ const Footer = () => {
           </p>
 
           {/* Email Subscription */}
-          <div className="flex items-center mt-4 rounded-full border border-gray-500 overflow-hidden w-full max-w-md">
+          <form action="https://api.web3forms.com/submit" method="POST"  className="flex items-center mt-4 rounded-full border border-gray-500 overflow-hidden  max-w-sm">
+          <input type="hidden" name="access_key" value={process.env.WEB3_ACCESS_KEY} />
             <input
               type="email"
+              name="email"
               placeholder="Email"
               className="flex-1 px-4 py-2 bg-transparent text-white focus:outline-none"
             />
-            <button className="px-4 py-2 bg-transparent text-xl">👍</button>
-          </div>
+            <button type="submit" className="px-4 py-2 bg-transparent text-xl">👍</button>
+          </form>
 
           {/* Buttons */}
-          <div className="flex gap-4 mt-6">
+          <div className="flex gap-4 text-sm sm:text-md mt-6">
             <Link href={"/contact"} className="px-6 py-2 rounded-full border border-gray-400 hover:bg-white hover:text-black transition">
               Brief Us
             </Link>
@@ -43,10 +45,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl mb-4">Explore</h3>
           <ul className="space-y-2 text-gray-300">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Work</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
 
@@ -58,7 +60,7 @@ const Footer = () => {
               <Instagram size={18} /> @neonpigeon.in
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={18} /> business@neonpigeon.in
+              <Mail size={18} /> kkaptureflowmedia@gmail.com
             </li>
             <li className="flex items-center gap-2">
               <Phone size={18} /> 9873370885, 8130606202

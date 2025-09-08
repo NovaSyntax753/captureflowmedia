@@ -13,15 +13,18 @@ const ContactForm = ({text1,text2}: {text1: string, text2: string}) => {
         </h2>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form action="https://api.web3forms.com/submit" method="POST" className="space-y-5">
+            <input type="hidden" name="access_key" value={process.env.WEB3_ACCESS_KEY} />
           <input
             type="text"
+            name="first_name"
             placeholder="First Name*"
             className="w-full px-4 py-3 rounded-lg bg-[#ebf3f1] focus:outline-none focus:ring-2 focus:ring-black"
             required
           />
           <input
             type="text"
+            name="last_name"
             placeholder="Last Name"
             className="w-full px-4 py-3 rounded-lg bg-[#ebf3f1] focus:outline-none focus:ring-2 focus:ring-black"
           />
@@ -29,12 +32,14 @@ const ContactForm = ({text1,text2}: {text1: string, text2: string}) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
               type="email"
+              name="email"
               placeholder="Email*"
               className="w-full px-4 py-3 rounded-lg bg-[#ebf3f1] focus:outline-none focus:ring-2 focus:ring-black"
               required
             />
             <input
               type="text"
+              name="contact_no"
               placeholder="Contact No*"
               className="w-full px-4 py-3 rounded-lg bg-[#ebf3f1] focus:outline-none focus:ring-2 focus:ring-black"
               required
@@ -44,6 +49,7 @@ const ContactForm = ({text1,text2}: {text1: string, text2: string}) => {
           <input
             type="text"
             placeholder="Company*"
+            name="company"
             className="w-full px-4 py-3 rounded-lg bg-[#ebf3f1] focus:outline-none focus:ring-2 focus:ring-black"
             required
           />

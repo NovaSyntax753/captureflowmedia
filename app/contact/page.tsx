@@ -1,6 +1,7 @@
 "use client"
-import { Mail, Instagram, Phone } from "lucide-react";
+import { Mail, Instagram, Phone,Youtube} from "lucide-react";
 import ContactForm from "@/components/ContactForm"
+import Link from "next/link";
 
 
 const page = () => {
@@ -25,27 +26,40 @@ const page = () => {
       </div>
 
       {/* Contact Details */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        <div className="flex flex-col items-center gap-3">
-          <Mail className="w-10 h-10" />
-          <p className="text-sm md:text-base">business@neonpigeon.in</p>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+        <Link href="mailto:kkaptureflowmedia@gmail.com">
+          <div className="flex flex-col items-center gap-3">
+            <Mail className="w-10 h-10" />
+            <p className="text-sm md:text-base">kkaptureflowmedia@gmail.com</p>
+          </div>
+        </Link>
 
-        <div className="flex flex-col items-center gap-3">
-          <Instagram className="w-10 h-10" />
-          <p className="text-sm md:text-base">@neonpigeon.in</p>
-        </div>
+        <Link href="https://www.instagram.com/kkapture_flow_media/" target="_blank" rel="noopener noreferrer">
+          <div className="flex flex-col items-center gap-3">
+            <Instagram className="w-10 h-10" />
+            <p className="text-sm md:text-base">@kkapture_flow_media</p>
+          </div>
+        </Link>
 
-        <div className="flex flex-col items-center gap-3">
-          <Phone className="w-10 h-10" />
-          <p className="text-sm md:text-base">
-            +91 83909 15155
-          </p>
-        </div>
+        <Link href="tel:+918390915155">
+          <div className="flex flex-col items-center gap-3 cursor-pointer">
+            <Phone className="w-10 h-10" />
+            <p className="text-sm md:text-base">
+              +91 83909 15155
+            </p>
+          </div>
+        </Link>
+
+        <Link href="https://youtube.com/@growwithpatels?si=9RTfjzHirqLciOJp" target="_blank" rel="noopener noreferrer">
+          <div className="flex flex-col items-center gap-3">
+            <Youtube className="w-10 h-10" />
+            <p className="text-sm md:text-base">@growwithpatels</p>
+          </div>
+        </Link>
       </div>
     </div>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
