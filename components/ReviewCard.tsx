@@ -25,10 +25,10 @@ const ReviewCard = ({ name, title, text }: { name: string; title: string; text: 
 const StyledWrapper = styled.div`
   height: 100%;
   .card {
-    --card-bg: #111;
-    --card-accent: #53c926;
-    --card-text: #fff;
-    --card-shadow: 0 10px 24px -4px rgba(83, 201, 38, 0.10);
+    --card-bg: #f1f1f1;
+    --card-accent: #000;
+    --card-text: #000;
+    --card-shadow: 0 10px 24px -4px rgba(83, 220, 250, 0.10);
     width: 100%;
     min-height: 220px;
     height: 100%;
@@ -72,7 +72,7 @@ const StyledWrapper = styled.div`
     justify-content: center;
   }
   .card__text {
-    color: #e5e7eb;
+    color: #e5555;
     font-size: 1.08em;
     font-weight: 500;
     margin: 0 0 0.7em 0;
@@ -94,7 +94,7 @@ const StyledWrapper = styled.div`
     text-align: center;
   }
   .card__title {
-    color: #bdbdbd;
+    color: black;
     font-size: 0.98em;
     text-align: center;
     font-weight: 500;
@@ -117,8 +117,8 @@ const StyledWrapper = styled.div`
     inset: -10px;
     background: radial-gradient(
       circle at 50% 0%,
-      rgba(46, 125, 50, 0.45) 0%,
-      rgba(46, 125, 50, 0) 100%
+      rgba(46, 250, 50, 0.45) 0%,
+      rgba(46, 250, 50, 0) 100%
     );
     opacity: 0;
     transition: opacity 0.5s ease;

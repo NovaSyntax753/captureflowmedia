@@ -7,6 +7,7 @@ import {
   FaLinkedin,
   FaStar,
 } from "react-icons/fa";
+import AnimatedTitle from "./Animated";
 
 const steps = [
   {
@@ -40,10 +41,16 @@ export default function Timeline() {
   return (
     <section className="w-full py-20  bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-3xl sm:text-5xl font-bold italic text-gray-900 mb-16">
+        <AnimatedTitle>
+        <h2 className="text-3xl sm:text-5xl font-bold italic text-gray-900 mb-10">
           How We Work
         </h2>
-
+        </AnimatedTitle>
+        <AnimatedTitle>
+          <p className="text-gray-500 mb-16 text-base sm:text-lg max-w-2xl mx-auto">
+            From strategy to results, here’s our proven approach to get high-ticket clients consistently.
+          </p>
+        </AnimatedTitle>
         {/* Wrapper */}
         <div className="relative flex pt-10 flex-col sm:flex-row sm:justify-between sm:space-x-8">
           {steps.map((step, index) => (

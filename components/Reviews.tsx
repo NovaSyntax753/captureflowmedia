@@ -76,6 +76,11 @@ const Reviews = () => {
         <AnimatedTitle>
           <h2 className="text-xl sm:text-3xl md:text-5xl font-bold  italic mb-4 sm:mb-8 md:mb-10 text-center">Words from Our Clients</h2>
         </AnimatedTitle>
+        <AnimatedTitle>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 text-center">
+              See what our clients have to say about working with us
+            </p>      
+        </AnimatedTitle>
         <div
           className="relative max-w-7xl mx-auto flex flex-col justify-center h-auto px-8 sm:px-12 md:px-20 focus:outline-none"
           ref={carouselRef}
@@ -89,7 +94,7 @@ const Reviews = () => {
             {/* Left Button */}
             <button
               onClick={prevSlide}
-              className="absolute -left-10 sm:-left-6 md:-left-10 top-1/2 -translate-y-1/2 bg-[#53c926] text-black p-2 sm:p-2.5 rounded-full shadow-lg border-2 border-white hover:bg-green-700 hover:text-white transition-colors duration-1000 z-10"
+              className="absolute -left-10 sm:-left-6 md:-left-10 top-1/2 -translate-y-1/2 bg-black text-white p-2 sm:p-2.5 rounded-full shadow-lg border-2 border-white hover:bg-slate-100 hover:text-black transition-colors duration-1000 z-10"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -119,7 +124,7 @@ const Reviews = () => {
             {/* Right Button */}
             <button
               onClick={nextSlide}
-              className="absolute -right-10 sm:-right-6 md:-right-10 top-1/2 -translate-y-1/2 bg-[#53c926] text-black p-2 sm:p-2.5 rounded-full shadow-lg border-2 border-white hover:bg-green-700 hover:text-white transition-colors duration-300 z-10"
+              className="absolute -right-10 sm:-right-6 md:-right-10 top-1/2 -translate-y-1/2 bg-black text-white  p-2 sm:p-2.5 rounded-full shadow-lg border-2 border-white  hover:text-black hover:bg-slate-100 transition-colors duration-300 z-10"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -132,7 +137,7 @@ const Reviews = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 border-2 border-[#53c926] ${index === currentIndex ? 'bg-[#53c926]' : 'bg-black'}`}
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 border-2 border-slate-600 ${index === currentIndex ? 'bg-black' : 'bg-white'}`}
               />
             ))}
           </div>

@@ -24,6 +24,10 @@ const Founders = () => (
     {/* <Image src={ribbon.src} height={100} width={100} alt="Ribbon" className="absolute -z-0 top-0 left-0 w-full h-auto object-fit opacity-20 pointer-events-none" /> */}
     <AnimatedTitle>
       <h2 className="text-xl sm:text-3xl md:text-5xl italic font-bold mb-8 sm:mb-10 ">Meet Our Founders</h2>
+        <p className="text-sm sm:text-base md:text-lg text-gray-500 italic max-w-2xl mx-auto mb-8 sm:mb-10">
+          The visionaries driving our growth, creativity, and culture — shaping stories that inspire and deliver results.
+        </p>
+
     </AnimatedTitle>
     <AnimatedTitle>
       <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 md:gap-14 justify-center items-center w-full px-2 sm:px-4 md:px-0">

@@ -34,10 +34,10 @@ const FounderCard = ({ image, name, position, linkedin,bio }: { image: string; n
 const StyledWrapper = styled.div`
   height: 100%;
   .card {
-    --card-bg: #111;
-    --card-accent: #53c926;
-    --card-text: #fff;
-    --card-shadow: 0 10px 24px -4px rgba(83, 201, 38, 0.10);
+    --card-bg: #f1f1f1;
+    --card-accent: #000;
+    --card-text: #000;
+    --card-shadow: 0 10px 24px -4px rgba(83, 220, 250, 0.10);
     width: 100%;
     max-width: 380px;
     min-height: 480px;
@@ -48,7 +48,7 @@ const StyledWrapper = styled.div`
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: var(--card-shadow);
-    border: 1.5px solid #222;
+    border:none;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,7 +97,7 @@ const StyledWrapper = styled.div`
     line-height: 1.2;
   }
   .card__position {
-    color: #e5e7eb;
+    color: black;
     font-size: 1.2em;
     font-weight: 600;
     margin-bottom: 0.5em;
@@ -125,7 +125,7 @@ const StyledWrapper = styled.div`
     height: 1.7em;
   }
   .card__desc {
-    color: #bdbdbd;
+    color: black;
     font-size: 1.08em;
     text-align: center;
     font-weight: 400;
@@ -155,8 +155,7 @@ const StyledWrapper = styled.div`
   }
   .card:hover {
     transform: translateY(-10px) scale(1.025);
-    box-shadow: 0 24px 48px -8px rgba(83, 201, 38, 0.18), 0 8px 16px -8px rgba(0,0,0,0.08);
-    border-color: #53c92644;
+    border-color: black;
   }
   .card:hover .card__shine {
     opacity: 1;

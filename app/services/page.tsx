@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 import SocialMarquee from "@/components/SocialMarquee";
 import GraphicDesignSection from "@/components/GraphicDesignSection";
 import MotionGraphicsSection from "@/components/MotionGraphics";
@@ -28,15 +30,34 @@ export default function ServicesNavigator() {
     <section className="w-full mt-20 overflow-hidden min-h-screen flex flex-col justify-center items-center text-center py-12 sm:py-16 lg:py-20">
       {/* Header */}
       <div className="min-h-[40vh] sm:min-h-[50vh] lg:min-h-[60vh] bg-white text-black flex flex-col justify-center gap-4 sm:gap-6">
-        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold"
+        >
           Content Marketing
-        </h2>
-        <p className="text-xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-6 sm:mb-8">
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-xl sm:text-3xl md:text-4xl lg:text-5xl italic mb-6 sm:mb-8"
+        >
           Services
-        </p>
+        </motion.p>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center sm:justify-evenly gap-3 sm:gap-4 bg-gray-100 p-2 sm:p-3 rounded-full w-full max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center sm:justify-evenly gap-3 sm:gap-4 bg-gray-100 p-2 sm:p-3 rounded-full w-full max-w-4xl mx-auto"
+        >
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -50,7 +71,7 @@ export default function ServicesNavigator() {
               {tab.label}
             </button>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Divider */}
@@ -58,11 +79,19 @@ export default function ServicesNavigator() {
 
       {/* Sections */}
       <div className="w-full space-y-12 sm:space-y-16 lg:space-y-20">
-        <VideoLeadMachineSection />
-        <VideoEditingSection />
+        <section id="video-lead-machine">
+          <VideoLeadMachineSection />
+        </section>
+        <section id="video-editing">
+          <VideoEditingSection />
+        </section>
         <SocialMarquee />
-        <GraphicDesignSection />
-        <MotionGraphicsSection />
+        <section id="graphics">
+          <GraphicDesignSection />
+        </section>
+        <section id="motion-graphics">
+          <MotionGraphicsSection />
+        </section>
       </div>
     </section>
   );
