@@ -28,20 +28,20 @@ const leadMachineFeatures = [
     },
 ];
 
-const leadMachineHighlights = [
-    {
-        icon: "🎯",
-        text: "Videos that don’t just get views — they get leads.",
-    },
-    {
-        icon: "⚙️",
-        text: "Your growth system in motion.",
-    },
-    {
-        icon: "➡️",
-        text: "From attention → to action → to clients.",
-    },
-];
+// const leadMachineHighlights = [
+//     {
+//         icon: "🎯",
+//         text: "Videos that don’t just get views — they get leads.",
+//     },
+//     {
+//         icon: "⚙️",
+//         text: "Your growth system in motion.",
+//     },
+//     {
+//         icon: "➡️",
+//         text: "From attention → to action → to clients.",
+//     },
+// ];
 
 export default function AboutHeader() {
     return (
