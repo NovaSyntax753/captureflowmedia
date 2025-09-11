@@ -39,7 +39,7 @@ const steps = [
 
 export default function Timeline() {
   return (
-    <section className="w-full py-20  bg-white">
+    <section className="w-full py-10  bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <AnimatedTitle>
         <h2 className="text-3xl sm:text-5xl font-bold italic text-gray-900 mb-10">

@@ -9,22 +9,22 @@ const leadMachineFeatures = [
     {
         icon: <FaBullhorn className="text-xl text-blue-600" />,
         title: "Video Ads for Your Niche",
-        description: "Custom-crafted video ads designed to attract your ideal audience and maximize attention.",
+        description: "Custom video campaigns designed to capture attention and drive leads.",
     },
     {
         icon: <FaFunnelDollar className="text-xl text-green-500" />,
         title: "Conversion Funnels",
-        description: "Proven funnel strategies that turn viewers into leads and leads into sales.",
+        description: "End-to-end funnel systems that turn views into booked calls.",
     },
     {
         icon: <FaUserShield className="text-xl text-yellow-500" />,
         title: "Authority-Building Content",
-        description: "Content that builds trust and positions your brand as the go-to expert.",
+        description: "Strategic video content that positions you as the go-to expert in your field.",
     },
     {
         icon: <FaRocket className="text-xl text-red-500" />,
         title: "Paid & Organic Lead Systems",
-        description: "Integrated systems to generate leads from both paid ads and organic reach.",
+        description: " Hybrid strategies to fuel consistent, predictable client acquisition.",
     },
 ];
 
@@ -46,7 +46,7 @@ const leadMachineFeatures = [
 export default function AboutHeader() {
     return (
         <>
-            <section id="Who we are" className="w-full py-16 px-6 lg:px-20 flex flex-col justify-center items-center lg:flex-row gap-12">
+            <section id="Who we are" className="w-full py-16 px-6 lg:px-20 flex flex-col justify-center items-center lg:flex-row gap-20">
                 {/* Left Content */}
                 <div className="flex-1 justify-center max-w-7xl mx-auto">
                     <h2 className="text-3xl md:text-4xl text-left font-bold">
@@ -80,7 +80,9 @@ export default function AboutHeader() {
                             </AccordionItem>
                         ))}
                     </Accordion>
-
+                    <p className="mt-6 text-gray-700 leading-relaxed text-left" >
+                        At the end of the day, we’re not just here to “make videos.” We’re here to build you a growth engine that gets results.
+                    </p>
                     <div className="mt-8">
                         <Link
                             href="#founders"
@@ -93,12 +95,12 @@ export default function AboutHeader() {
 
                 {/* Right Image */}
                 <div className="flex-1 flex justify-end">
-                    <Image
-                        src="/logo4.png"
-                        alt="Video Lead Machine"
-                        width={500}
-                        height={800}
-                        className="rounded-[60px] h-[350px] p-2 bg-black rounded-br-none object-fit shadow-md"
+                    <video
+                        src="/aboutus.mp4"
+                        autoPlay
+                        muted
+                        loop
+                        className="rounded-[60px] min-h-[350px]  bg-black  rounded-br-none object-fit shadow-md"
                     />
                 </div>
             </section>

@@ -97,13 +97,13 @@ export default function AboutSection() {
       <hr className="hidden sm:block mt-8 mb-6 sm:mb-10 w-[90%] border-t border-white/40" />
 
       {/* Sections */}
-      <div className="w-full space-y-12 sm:space-y-16 lg:space-y-20 mx-auto px-4">
+      <div className="w-full space-y-12 sm:space-y-16 lg:space-y-20 mx-auto ">
         {/* About Header */}
         <AboutHeader />
 
         {/* Lead Machine Highlights */}
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center"
+          className="w-full min-h-40  py-10 item-center justify-center align-middle grid grid-cols-1 sm:grid-cols-3 gap-12 text-center text-white bg-black"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
@@ -132,7 +132,7 @@ export default function AboutSection() {
 
         {/* Lead Machine Highlights 2 */}
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center"
+          className="w-full min-h-40 py-10 item-center justify-center align-middle grid grid-cols-1 sm:grid-cols-3 gap-12 text-center text-white bg-black"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
@@ -146,7 +146,7 @@ export default function AboutSection() {
               transition={{ duration: 0.6 }}
             >
               <span className="text-5xl mb-4">{item.icon}</span>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-xl font-semibold">{item.title}</h3>
             </motion.div>
           ))}
         </motion.div>

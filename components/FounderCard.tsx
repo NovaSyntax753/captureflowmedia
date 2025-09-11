@@ -37,7 +37,7 @@ const StyledWrapper = styled.div`
     --card-bg: #f1f1f1;
     --card-accent: #000;
     --card-text: #000;
-    --card-shadow: 0 10px 24px -4px rgba(83, 220, 250, 0.10);
+    --card-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.30);
     width: 100%;
     max-width: 380px;
     min-height: 480px;
@@ -148,6 +148,11 @@ const StyledWrapper = styled.div`
   .card__glow {
     position: absolute;
     inset: -10px;
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(46, 250, 50, 0.45) 0%,
+      rgba(46, 250, 50, 0) 100%
+    );
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
@@ -155,7 +160,8 @@ const StyledWrapper = styled.div`
   }
   .card:hover {
     transform: translateY(-10px) scale(1.025);
-    border-color: black;
+    box-shadow: 0 24px 48px -8px rgba(83, 201, 38, 0.18), 0 8px 16px -8px rgba(0,0,0,0.08);
+    border-color: #53c92644;
   }
   .card:hover .card__shine {
     opacity: 1;
