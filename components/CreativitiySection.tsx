@@ -16,11 +16,10 @@ const CreativitySection = () => {
         viewport={{ once: false, amount: 0.3 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-          Creativity is essential <br />
-          <span className="text-white">for brands,</span>{" "}
+          Clients trust faces, <br />
+          <span className="text-white"> not just logos.</span>{" "}
           <span className="italic text-green-400">
-            that want to break through <br />
-            the noise and build loyalty.
+            Our  Video <br/> Lead Machine helps ,<br /> you capture attention,<br/> build trust, and generate leads.
           </span>
         </h2>
         <Link href="/contact">
@@ -29,7 +28,7 @@ const CreativitySection = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Work with us
+            Build My Video Lead Machine
           </motion.button>
         </Link>
       </motion.div>

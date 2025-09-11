@@ -121,7 +121,7 @@ export default function MotionGraphicsSection() {
       </section>
 
       {/* Highlights */}
-      <section className="w-full text-black py-2">
+      <section className="w-full text-white bg-black py-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
           {motionHighlights.map((item, index) => (
             <motion.div

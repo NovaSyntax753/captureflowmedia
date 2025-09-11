@@ -48,7 +48,7 @@ export default function GraphicDesignSection() {
     <>
       <section
         id="graphics"
-        className="w-full py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12"
+        className="w-full py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-12 mb-0 sm:mb-20"
       >
         {/* Left Content */}
         <motion.div
@@ -113,8 +113,8 @@ export default function GraphicDesignSection() {
       </section>
 
       {/* Bottom Feature Highlights */}
-      <section className="w-full text-white">
-        <div className="w-full text-black">
+      <section className="w-full text-white bg-black py-10">
+        <div className="w-full ">
           <motion.div
             initial="hidden"
             whileInView="visible"
