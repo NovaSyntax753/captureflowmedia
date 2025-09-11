@@ -92,10 +92,9 @@ export default function AboutSection() {
           ))}
         </motion.div>
       </div>
-
-      {/* Divider */}
-      <hr className="hidden sm:block mt-8 mb-6 sm:mb-10 w-[90%] border-t border-white/40" />
-
+      
+      <hr className="hidden sm:block mt-8 mb-6 sm:mb-10 w-[90%] border-t border-black" />
+       {/* Divider */}
       {/* Sections */}
       <div className="w-full space-y-12 sm:space-y-16 lg:space-y-20 mx-auto ">
         {/* About Header */}

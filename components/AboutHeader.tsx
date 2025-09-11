@@ -11,20 +11,15 @@ const leadMachineFeatures = [
         title: "Video Ads for Your Niche",
         description: "Custom video campaigns designed to capture attention and drive leads.",
     },
-    {
-        icon: <FaFunnelDollar className="text-xl text-green-500" />,
-        title: "Conversion Funnels",
-        description: "End-to-end funnel systems that turn views into booked calls.",
-    },
+    // {
+    //     icon: <FaFunnelDollar className="text-xl text-green-500" />,
+    //     title: "Conversion Funnels",
+    //     description: "End-to-end funnel systems that turn views into booked calls.",
+    // },
     {
         icon: <FaUserShield className="text-xl text-yellow-500" />,
         title: "Authority-Building Content",
         description: "Strategic video content that positions you as the go-to expert in your field.",
-    },
-    {
-        icon: <FaRocket className="text-xl text-red-500" />,
-        title: "Paid & Organic Lead Systems",
-        description: " Hybrid strategies to fuel consistent, predictable client acquisition.",
     },
 ];
 
@@ -83,7 +78,7 @@ export default function AboutHeader() {
                     <p className="mt-6 text-gray-700 leading-relaxed text-left" >
                         At the end of the day, we’re not just here to “make videos.” We’re here to build you a growth engine that gets results.
                     </p>
-                    <div className="mt-8">
+                    <div className="mt-8 flex w-full items-start justify-start">
                         <Link
                             href="#founders"
                             className="inline-block bg-black text-white font-semibold py-3 px-8 rounded-full shadow hover:bg-white hover:text-black transition"

@@ -53,29 +53,65 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div>
-          <h3 className="text-xl mb-4">Contact Us</h3>
-          <ul className="space-y-3 text-gray-300">
-            <li className="flex items-center gap-2">
-              <Instagram size={18} /> @kkaptureflowmedia
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail size={18} /> kkaptureflowmedia@gmail.com
-            </li>
-            <li className="flex items-center gap-2">
-              <Phone size={18} /> +91 83909 15155
-            </li>
-            <li className="flex items-center gap-2">
-              <Youtube size={18} /> @growwithpatels
-            </li>
-            <li className="flex items-center gap-2">
-              <MapPin size={18} /> 
-              <span className="max-w-xs">
-                Second Floor, Inox Rd, above Bramha Hotel, near Shastri Nagar, Chapru Nagar, Sq, Shashtri Nagar, Nagpur, Maharashtra 440008
-              </span>
-            </li>
-          </ul>
-        </div>
+    <div>
+      <h3 className="text-xl mb-4">Contact Us</h3>
+      <ul className="space-y-3 text-gray-300">
+        {/* Instagram */}
+        <li className="flex items-center gap-2">
+          <Instagram size={18} />
+          <Link
+            href="https://instagram.com/kkapture_flow_media"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            @kkapture_flow_media
+          </Link>
+        </li>
+
+        {/* Email */}
+        <li className="flex items-center gap-2">
+          <Mail size={18} />
+          <Link href="mailto:kkaptureflowmedia@gmail.com" className="hover:underline">
+            kkaptureflowmedia@gmail.com
+          </Link>
+        </li>
+
+        {/* Phone */}
+        <li className="flex items-center gap-2">
+          <Phone size={18} />
+          <Link href="tel:+918390915155" className="hover:underline">
+            +91 83909 15155
+          </Link>
+        </li>
+
+        {/* YouTube */}
+        <li className="flex items-center gap-2">
+          <Youtube size={18} />
+          <Link
+            href="https://youtube.com/@growwithpatels"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            @growwithpatels
+          </Link>
+        </li>
+
+        {/* Address */}
+        <li className="flex items-center gap-2">
+          <MapPin size={18} />
+          <Link
+            href="https://maps.google.com/?q=Second Floor, Inox Rd, above Bramha Hotel, near Shastri Nagar, Chapru Nagar, Sq, Shashtri Nagar, Nagpur, Maharashtra 440008"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline max-w-xs"
+          >
+            Second Floor, Inox Rd, above Bramha Hotel, near Shastri Nagar, Chapru Nagar, Sq, Shashtri Nagar, Nagpur, Maharashtra 440008
+          </Link>
+        </li>
+      </ul>
+    </div>
       </div>
 
       {/* Bottom Bar */}

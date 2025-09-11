@@ -107,11 +107,11 @@ export default function VideoLeadMachineSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
             viewport={{ once: false }}
-            className="mt-8"
+            className="mt-8 flex w-full items-start justify-start"
           >
             <Link
               href="/contact"
-              className="inline-block bg-black text-white font-semibold py-3 px-8 rounded-full shadow hover:bg-green-700 transition"
+              className="inline-block text-start bg-black text-white font-semibold py-3 px-8 rounded-full shadow hover:bg-green-700 transition"
             >
               Build My Lead Machine
             </Link>
