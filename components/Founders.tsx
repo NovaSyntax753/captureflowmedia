@@ -8,7 +8,7 @@ const founders = [
     position: 'Co-Founder',
     image: pratik, // Replace with real image if available
     linkedin: 'https://www.linkedin.com/in/pratik-patel-d21/', // Replace with real URL
-    bio:'Leads Flow Media’s growth strategist, turning bold visions into content that converts',
+    bio:'KKaptureFlow Media’s growth strategist, turning bold visions into content that converts',
   },
   {
     name: 'Ms. Dhruvi Patel',

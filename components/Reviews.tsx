@@ -7,7 +7,7 @@ const reviews = [
   {
     name: 'CA Shubham Patel',
     title: 'Founder and CEO Conso AI',
-    text: "LeadsFlow Media transformed our online presence. Their video strategies brought us real engagement.",
+    text: "KKaptureFlow Media transformed our online presence. Their video strategies brought us real engagement.",
   },
   {
     name: 'Rohit Purohit',
@@ -22,7 +22,7 @@ const reviews = [
   {
     name: 'Dr. Vrutika Patel',
     title: 'Founder Blissful hands',
-    text: "LeadsFlow Media helped me build a personal brand I'm proud of. I recommend them to anyone serious about growth.",
+    text: "KKaptureFlow Media helped me build a personal brand I'm proud of. I recommend them to anyone serious about growth.",
   },
   {
     name: 'CA CS Harshwardhan Bissa',

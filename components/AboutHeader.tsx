@@ -91,11 +91,11 @@ export default function AboutHeader() {
                 {/* Right Image */}
                 <div className="flex-1 flex justify-end">
                     <video
-                        src="/aboutus.mp4"
+                        src="/aboutus1.mp4"
                         autoPlay
                         muted
                         loop
-                        className="rounded-[60px] min-h-[350px]  bg-black  rounded-br-none object-fit shadow-md"
+                        className="rounded-[60px] min-h-[350px] max-h-[500px]  bg-black  rounded-br-none object-fit shadow-md"
                     />
                 </div>
             </section>
