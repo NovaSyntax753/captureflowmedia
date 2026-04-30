@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed:anon": "node scripts/seed_work_videos.js",
+    "seed:service": "node scripts/seed_with_service_key.js",
+    "test:admin": "node scripts/test_admin_panel.js"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

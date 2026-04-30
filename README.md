@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Work Admin
+
+The protected video manager lives at `/admin/work`.
+
+Add the following to `.env.local`:
+
+```env
+ADMIN_PASSWORD=your_secure_password_here
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key_here
+SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
+```
+
+The `/work` page reads from the `work_videos` table in Supabase. Create the table, seed it, and enable RLS using the SQL files in `sql/` before using the admin panel in production.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
