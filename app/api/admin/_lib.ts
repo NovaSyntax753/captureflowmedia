@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
 import type { WorkVideoInput } from "@/app/admin/work/types";
 
+function normalizeSecret(value: string) {
+  const trimmed = value.trim();
+  if ((trimmed.startsWith('"') && trimmed.endsWith('"')) || (trimmed.startsWith("'") && trimmed.endsWith("'"))) {
+    return trimmed.slice(1, -1).trim();
+  }
+  return trimmed;
+}
+
 function getSupabaseConfig() {
   const supabaseUrl = process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_ANON_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -13,14 +21,16 @@ function getSupabaseConfig() {
 }
 
 export function isAdminAuthorized(request: Request) {
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPasswordRaw = process.env.ADMIN_PASSWORD;
 
-  if (!adminPassword) {
+  if (!adminPasswordRaw) {
     return false;
   }
 
+  const adminPassword = normalizeSecret(adminPasswordRaw);
+
   const authHeader = request.headers.get("authorization") ?? "";
-  const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7).trim() : "";
+  const token = authHeader.startsWith("Bearer ") ? normalizeSecret(authHeader.slice(7)) : "";
 
   return token.length > 0 && token === adminPassword;
 }
