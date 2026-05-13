@@ -23,6 +23,29 @@ const emptyForm: VideoFormState = {
   is_pinned: false,
 };
 
+const videoFileInputId = "work-video-file-input";
+
+function readFileAsDataUrl(file: File) {
+  return new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (typeof reader.result === "string") {
+        resolve(reader.result);
+        return;
+      }
+
+      reject(new Error("Failed to read the selected video file."));
+    };
+
+    reader.onerror = () => {
+      reject(new Error("Failed to read the selected video file."));
+    };
+
+    reader.readAsDataURL(file);
+  });
+}
+
 function toFormState(video: WorkVideo): VideoFormState {
   return {
     title: video.title,
@@ -58,6 +81,7 @@ export default function AdminWorkPage() {
   const [error, setError] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
   const [form, setForm] = useState<VideoFormState>(emptyForm);
+  const [selectedVideoFileName, setSelectedVideoFileName] = useState("");
 
   useEffect(() => {
     const storedAuth = window.localStorage.getItem("cfm_admin_auth");
@@ -127,6 +151,7 @@ export default function AdminWorkPage() {
     setAuthToken(null);
     setVideos([]);
     setForm(emptyForm);
+    setSelectedVideoFileName("");
     setEditingId(null);
   };
 
@@ -178,11 +203,41 @@ export default function AdminWorkPage() {
   const handleEdit = (video: WorkVideo) => {
     setEditingId(video.id);
     setForm(toFormState(video));
+    setSelectedVideoFileName("");
   };
 
   const handleAddNew = () => {
     setEditingId(null);
     setForm(emptyForm);
+    setSelectedVideoFileName("");
+  };
+
+  const handleVideoFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (!file.type.startsWith("video/")) {
+      setError("Please select a video file.");
+      event.target.value = "";
+      return;
+    }
+
+    setError("");
+    setSaving(true);
+
+    try {
+      const dataUrl = await readFileAsDataUrl(file);
+      setForm((current) => ({ ...current, video_url: dataUrl }));
+      setSelectedVideoFileName(file.name);
+    } catch (uploadError) {
+      setError(uploadError instanceof Error ? uploadError.message : "Failed to load the selected video file.");
+      event.target.value = "";
+    } finally {
+      setSaving(false);
+    }
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -315,7 +370,7 @@ export default function AdminWorkPage() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white px-4 py-10 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-black text-white px-4 pb-10 pt-32 sm:px-6 lg:px-8 lg:pt-36">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -454,6 +509,31 @@ export default function AdminWorkPage() {
                   className="mt-2 w-full rounded-2xl border border-white/10 bg-black px-4 py-3 text-white outline-none transition focus:border-[#53c926]"
                 />
               </label>
+
+              <div className="rounded-2xl border border-white/10 bg-black px-4 py-4">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-white/80">Import from device</p>
+                    <p className="text-xs text-white/50">Pick a local video file and it will be saved into the video URL field as an embedded data URL.</p>
+                  </div>
+                  <label
+                    htmlFor={videoFileInputId}
+                    className="inline-flex cursor-pointer items-center justify-center rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white transition hover:border-[#53c926] hover:text-[#53c926]"
+                  >
+                    Choose File
+                  </label>
+                </div>
+                <input
+                  id={videoFileInputId}
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoFileChange}
+                  className="sr-only"
+                />
+                {selectedVideoFileName ? (
+                  <p className="mt-3 text-xs text-[#53c926]">Selected: {selectedVideoFileName}</p>
+                ) : null}
+              </div>
 
               <label className="block text-sm font-medium text-white/80">
                 Thumbnail URL
