@@ -119,7 +119,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/admin/login"
-                className="hover:opacity-75 text-base block py-2 px-4 opacity-40"
+                className="hover:opacity-100 text-base block py-2 px-4 opacity-80"
                 onClick={() => setIsMenuOpen(false)}
                 aria-label="Admin panel"
               >
@@ -145,7 +145,7 @@ const Navbar = () => {
             <a
               href="/admin/login"
               aria-label="Admin panel"
-              className="ml-2 px-3 py-2 rounded-full opacity-25 hover:opacity-60 transition-opacity duration-200 text-sm"
+              className="ml-2 px-3 py-2 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-200 text-sm"
               title="Admin"
             >
               🔒
