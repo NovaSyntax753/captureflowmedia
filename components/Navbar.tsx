@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation"; // ✅ To detect current route
+import { usePathname } from "next/navigation";
 import logo from "../public/logo4.png";
 import logo1 from "../public/logo9.png";
 
@@ -16,9 +16,9 @@ const navLinks = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollYRef = useRef(0);
 
-  const pathname = usePathname(); // ✅ current route
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -32,20 +32,21 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
-  // Navbar hide on scroll down, show on scroll up
+  // Navbar hide on scroll down, show on scroll up — listener registered once only
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShowNavbar(false); // scrolling down → hide
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollYRef.current && currentScrollY > 80) {
+        setShowNavbar(false);
       } else {
-        setShowNavbar(true); // scrolling up → show
+        setShowNavbar(true);
       }
-      setLastScrollY(window.scrollY);
+      lastScrollYRef.current = currentScrollY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Dynamic background based on route
   const navBg = pathname === "/work" ? "bg-black text-white" : "bg-white text-black";
@@ -115,6 +116,16 @@ const Navbar = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="/admin/login"
+                className="hover:opacity-75 text-base block py-2 px-4 opacity-40"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Admin panel"
+              >
+                🔒
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -130,6 +141,16 @@ const Navbar = () => {
               </a>
             </li>
           ))}
+          <li>
+            <a
+              href="/admin/login"
+              aria-label="Admin panel"
+              className="ml-2 px-3 py-2 rounded-full opacity-25 hover:opacity-60 transition-opacity duration-200 text-sm"
+              title="Admin"
+            >
+              🔒
+            </a>
+          </li>
         </ul>
       </div>
     </div>

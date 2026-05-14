@@ -41,6 +41,57 @@ function normalizeWorkVideo(video: Partial<WorkVideo> & { [key: string]: unknown
   };
 }
 
+function extractYouTubeVideoId(url: string) {
+  try {
+    const parsedUrl = new URL(url);
+    const host = parsedUrl.hostname.replace(/^www\./, "");
+    const pathname = parsedUrl.pathname.replace(/\/+$/, "");
+
+    if (host === "youtu.be") {
+      const videoId = pathname.split("/").filter(Boolean)[0];
+      return videoId || null;
+    }
+
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (pathname === "/watch") {
+        return parsedUrl.searchParams.get("v");
+      }
+
+      if (pathname.startsWith("/shorts/")) {
+        return pathname.split("/")[2] || null;
+      }
+
+      if (pathname.startsWith("/embed/")) {
+        return pathname.split("/")[2] || null;
+      }
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+function isYouTubeShortsUrl(url: string) {
+  try {
+    const parsedUrl = new URL(url);
+    const host = parsedUrl.hostname.replace(/^www\./, "");
+    return (host === "youtube.com" || host === "m.youtube.com") && parsedUrl.pathname.startsWith("/shorts/");
+  } catch {
+    return false;
+  }
+}
+
+function toYouTubeEmbedUrl(url: string) {
+  const videoId = extractYouTubeVideoId(url);
+  return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+}
+
+function toYouTubeThumbnailUrl(url: string) {
+  const videoId = extractYouTubeVideoId(url);
+  return videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : null;
+}
+
 async function fetchWorkVideos(signal?: AbortSignal) {
   if (!supabaseUrl || !supabaseAnonKey) {
     return fallbackVideos;
@@ -74,7 +125,7 @@ async function fetchWorkVideos(signal?: AbortSignal) {
 }
 
 function isYouTubeEmbed(url: string) {
-  return /youtube\.com\/embed|youtu\.be/.test(url);
+  return Boolean(toYouTubeEmbedUrl(url));
 }
 
 function PublicWorkGallery() {
@@ -117,7 +168,7 @@ function PublicWorkGallery() {
 
   const handlePlay = (videoRef: HTMLVideoElement | null) => {
     if (videoRef) {
-      void videoRef.play();
+      void videoRef.play().catch(() => undefined);
     }
   };
 
@@ -133,9 +184,30 @@ function PublicWorkGallery() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
         {videos.slice(0, visibleCount).map((video) => (
           <div key={video.id} className="rounded-xl shadow-lg bg-black overflow-hidden">
-            {isYouTubeEmbed(video.video_url) ? (
+            {isYouTubeShortsUrl(video.video_url) ? (
+              <a
+                href={video.video_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block w-full overflow-hidden rounded-xl"
+                aria-label={`Open ${video.title} on YouTube`}
+                style={{ aspectRatio: "9/16" }}
+              >
+                <img
+                  src={video.thumbnail_url || toYouTubeThumbnailUrl(video.video_url) || undefined}
+                  alt={video.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="rounded-full bg-black/70 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm">
+                    Watch on YouTube
+                  </div>
+                </div>
+              </a>
+            ) : isYouTubeEmbed(video.video_url) ? (
               <iframe
-                src={video.video_url}
+                src={toYouTubeEmbedUrl(video.video_url) ?? video.video_url}
                 title={video.title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

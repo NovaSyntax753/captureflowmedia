@@ -26,7 +26,7 @@ export default function PortfolioSection() {
 
   // Play/pause video on hover (desktop) or tap (mobile)
   const handlePlay = (videoRef: HTMLVideoElement | null) => {
-    if (videoRef) videoRef.play();
+    if (videoRef) void videoRef.play().catch(() => undefined);
   };
   const handlePause = (videoRef: HTMLVideoElement | null) => {
     if (videoRef) videoRef.pause();
