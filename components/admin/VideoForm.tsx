@@ -1,6 +1,6 @@
 "use client";
 
-import type { FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 
 export type VideoFormState = {
   title: string;
@@ -16,6 +16,7 @@ type Props = {
   form: VideoFormState;
   editingId: string | null;
   saving: boolean;
+  authToken: string | null;
   onChange: (form: VideoFormState) => void;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
   onReset: () => void;
@@ -34,7 +35,11 @@ function Field({
     <div className="space-y-1.5">
       <label className="block text-xs font-semibold uppercase tracking-wider text-white/40">
         {label}
-        {hint && <span className="ml-1.5 text-[10px] normal-case tracking-normal text-white/25 font-normal">{hint}</span>}
+        {hint && (
+          <span className="ml-1.5 text-[10px] normal-case tracking-normal text-white/25 font-normal">
+            {hint}
+          </span>
+        )}
       </label>
       {children}
     </div>
@@ -48,11 +53,79 @@ export default function VideoForm({
   form,
   editingId,
   saving,
+  authToken,
   onChange,
   onSubmit,
   onReset,
 }: Props) {
   const set = (patch: Partial<VideoFormState>) => onChange({ ...form, ...patch });
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [uploading, setUploading] = useState(false);
+  const [uploadError, setUploadError] = useState("");
+  const [uploadedFileName, setUploadedFileName] = useState("");
+  const [uploadProgress, setUploadProgress] = useState(0);
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("video/")) {
+      setUploadError("Please select a video file.");
+      e.target.value = "";
+      return;
+    }
+
+    setUploadError("");
+    setUploading(true);
+    setUploadProgress(10);
+    setUploadedFileName(file.name);
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      // Simulate progress while uploading (XHR would give real progress,
+      // but fetch is simpler here — we fake intermediate steps)
+      const progressInterval = setInterval(() => {
+        setUploadProgress((p) => (p < 85 ? p + 5 : p));
+      }, 300);
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${authToken ?? ""}`,
+        },
+        body: formData,
+      });
+
+      clearInterval(progressInterval);
+      setUploadProgress(100);
+
+      if (!res.ok) {
+        const data = (await res.json()) as { error?: string };
+        throw new Error(data.error ?? "Upload failed");
+      }
+
+      const data = (await res.json()) as { url: string };
+      set({ video_url: data.url });
+    } catch (err) {
+      setUploadError(err instanceof Error ? err.message : "Upload failed");
+      setUploadedFileName("");
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    } finally {
+      setUploading(false);
+      setTimeout(() => setUploadProgress(0), 800);
+    }
+  };
+
+  const clearUpload = () => {
+    setUploadedFileName("");
+    setUploadError("");
+    setUploadProgress(0);
+    set({ video_url: "" });
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
 
   return (
     <div className="rounded-2xl border border-white/[0.07] bg-[#0e0e0e] overflow-hidden">
@@ -99,16 +172,131 @@ export default function VideoForm({
           />
         </Field>
 
-        <Field label="Video URL" hint="required — paste a YouTube, Vimeo, or CDN link">
+        {/* Video URL + Upload from PC */}
+        <div className="space-y-1.5">
+          <label className="block text-xs font-semibold uppercase tracking-wider text-white/40">
+            Video URL
+            <span className="ml-1.5 text-[10px] normal-case tracking-normal text-white/25 font-normal">
+              required — paste a link or upload from your PC
+            </span>
+          </label>
+
+          {/* URL text input */}
           <input
             type="text"
             value={form.video_url}
             onChange={(e) => set({ video_url: e.target.value })}
-            placeholder="https://..."
+            placeholder="https://youtube.com/... or Vimeo / CDN link"
             className={inputCls}
             required
           />
-        </Field>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 pt-1">
+            <div className="flex-1 h-px bg-white/[0.05]" />
+            <span className="text-[10px] text-white/20 uppercase tracking-wider">or</span>
+            <div className="flex-1 h-px bg-white/[0.05]" />
+          </div>
+
+          {/* Upload zone */}
+          <div
+            className={`relative rounded-xl border transition-all duration-200 ${
+              uploading
+                ? "border-[#53c926]/30 bg-[#53c926]/[0.04]"
+                : uploadedFileName
+                  ? "border-[#53c926]/25 bg-[#53c926]/[0.03]"
+                  : "border-white/[0.07] bg-white/[0.02] hover:border-white/[0.12] hover:bg-white/[0.03]"
+            }`}
+          >
+            {/* Hidden file input */}
+            <input
+              ref={fileInputRef}
+              id="video-file-upload"
+              type="file"
+              accept="video/*"
+              className="sr-only"
+              onChange={handleFileChange}
+              disabled={uploading}
+            />
+
+            {uploadedFileName ? (
+              /* Uploaded state */
+              <div className="flex items-center gap-3 px-4 py-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#53c926]/15">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#53c926" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-xs font-medium text-[#53c926]">{uploadedFileName}</p>
+                  <p className="text-[10px] text-white/30">Uploaded — URL filled in above</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={clearUpload}
+                  className="shrink-0 rounded-lg p-1.5 text-white/30 hover:text-white hover:bg-white/[0.06] transition-colors"
+                  title="Remove"
+                >
+                  <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            ) : (
+              /* Default pick state */
+              <label
+                htmlFor="video-file-upload"
+                className={`flex items-center gap-3 px-4 py-3.5 cursor-pointer ${uploading ? "pointer-events-none" : ""}`}
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04]">
+                  {uploading ? (
+                    <svg className="animate-spin text-[#53c926]" width="14" height="14" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                  ) : (
+                    <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" className="text-white/40">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                  )}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-white/60">
+                    {uploading ? "Uploading..." : "Upload from PC"}
+                  </p>
+                  <p className="text-[10px] text-white/25">
+                    {uploading ? "Please wait, uploading to storage" : "MP4, MOV, WebM — uploaded to Supabase Storage"}
+                  </p>
+                </div>
+                {!uploading && (
+                  <span className="ml-auto shrink-0 rounded-lg border border-white/[0.1] bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-white/50">
+                    Browse
+                  </span>
+                )}
+              </label>
+            )}
+
+            {/* Progress bar */}
+            {uploading && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 overflow-hidden rounded-b-xl bg-white/[0.05]">
+                <div
+                  className="h-full bg-[#53c926] transition-all duration-300 ease-out"
+                  style={{ width: `${uploadProgress}%` }}
+                />
+              </div>
+            )}
+          </div>
+
+          {/* Upload error */}
+          {uploadError && (
+            <div className="flex items-start gap-2 rounded-lg border border-red-500/20 bg-red-500/[0.07] px-3 py-2.5">
+              <svg className="mt-0.5 shrink-0 text-red-400" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-xs text-red-300 leading-relaxed">{uploadError}</p>
+            </div>
+          )}
+        </div>
 
         <Field label="Thumbnail URL" hint="optional">
           <input
@@ -169,7 +357,7 @@ export default function VideoForm({
 
         <button
           type="submit"
-          disabled={saving}
+          disabled={saving || uploading}
           className="w-full rounded-xl bg-[#53c926] px-5 py-3 text-sm font-semibold text-black transition-all hover:bg-[#61e02e] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {saving ? (
@@ -180,6 +368,8 @@ export default function VideoForm({
               </svg>
               Saving...
             </span>
+          ) : uploading ? (
+            "Upload in progress..."
           ) : editingId ? (
             "Save Changes"
           ) : (

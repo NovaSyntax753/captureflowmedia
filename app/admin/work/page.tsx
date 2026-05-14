@@ -349,6 +349,7 @@ export default function AdminWorkPage() {
               form={form}
               editingId={editingId}
               saving={saving}
+              authToken={token}
               onChange={setForm}
               onSubmit={handleSubmit}
               onReset={handleReset}
