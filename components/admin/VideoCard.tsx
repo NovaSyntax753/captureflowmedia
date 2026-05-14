@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { WorkVideo } from "@/app/admin/work/types";
 
 type Props = {
@@ -10,7 +11,35 @@ type Props = {
   onTogglePin: (video: WorkVideo) => void;
 };
 
+/** Extract YouTube video ID from any YouTube URL format */
+function extractYouTubeId(url: string): string | null {
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{11})/,
+  ];
+  for (const p of patterns) {
+    const m = p.exec(url);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+/** Resolve the best thumbnail src for a video */
+function resolveThumbnail(video: WorkVideo): string | null {
+  // 1. Explicit thumbnail URL
+  if (video.thumbnail_url) return video.thumbnail_url;
+
+  // 2. Auto-generate from YouTube video URL
+  const ytId = extractYouTubeId(video.video_url);
+  if (ytId) return `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+
+  return null;
+}
+
 export default function VideoCard({ video, isEditing, onEdit, onDelete, onTogglePin }: Props) {
+  const thumbnail = resolveThumbnail(video);
+  const [imgFailed, setImgFailed] = useState(false);
+  const ytId = extractYouTubeId(video.video_url);
+
   return (
     <article
       className={`group rounded-2xl border bg-[#0e0e0e] transition-all duration-200 ${
@@ -21,20 +50,57 @@ export default function VideoCard({ video, isEditing, onEdit, onDelete, onToggle
     >
       <div className="flex gap-4 p-4">
         {/* Thumbnail */}
-        <div className="h-20 w-32 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] bg-black">
-          {video.thumbnail_url ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={video.thumbnail_url}
-              alt={video.title}
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+        <div className="relative h-20 w-32 shrink-0 overflow-hidden rounded-xl border border-white/[0.06] bg-[#111]">
+          {thumbnail && !imgFailed ? (
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={thumbnail}
+                alt={video.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+                onError={() => setImgFailed(true)}
+              />
+              {/* Play overlay on hover if it's a YouTube link */}
+              {ytId && (
+                <a
+                  href={`https://www.youtube.com/watch?v=${ytId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                  title="Watch on YouTube"
+                >
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-red-600 shadow">
+                    <svg width="10" height="10" fill="white" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </a>
+              )}
+            </>
           ) : (
+            /* Fallback: dark placeholder with play icon */
             <div className="flex h-full w-full items-center justify-center">
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" className="text-white/20">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                className="text-white/20"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
             </div>
           )}
